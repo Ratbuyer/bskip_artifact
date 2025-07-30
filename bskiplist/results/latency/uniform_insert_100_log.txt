@@ -1,0 +1,285 @@
+loading with file: /home/eddy/datasets/custom/uniform/insert_100/loada_unif_int.dat
+running with file: /home/eddy/datasets/custom/uniform/insert_100/txnsa_unif_int.dat
+bskiplist
+	Run, throughput: 12.046556 ,ops/us
+	Run, throughput: 12.060364 ,ops/us
+	Run, throughput: 12.161683 ,ops/us
+	Run, throughput: 11.581247 ,ops/us
+	Run, throughput: 11.870093 ,ops/us
+	Run, throughput: 12.197953 ,ops/us
+Percentile 50: 3561
+Percentile 90: 4676
+Percentile 99: 13903
+Percentile 99.9: 276962
+Percentile 99.99: 386497
+Max: 799340
+	Median Load throughput: 22.431916 ,ops/us
+	Median Run throughput: 12.060364 ,ops/us
+
+
+loading with file: /home/eddy/datasets/custom/uniform/insert_100/loada_unif_int.dat
+running with file: /home/eddy/datasets/custom/uniform/insert_100/txnsa_unif_int.dat
+bskiplist
+	Run, throughput: 20.153538 ,ops/us
+	Run, throughput: 20.238540 ,ops/us
+	Run, throughput: 20.239248 ,ops/us
+	Run, throughput: 19.163167 ,ops/us
+	Run, throughput: 20.207397 ,ops/us
+	Run, throughput: 20.211264 ,ops/us
+Percentile 50: 2797
+Percentile 90: 3446
+Percentile 99: 4418
+Percentile 99.9: 7032
+Percentile 99.99: 12027
+Max: 166109
+	Median Load throughput: 20.901913 ,ops/us
+	Median Run throughput: 20.211264 ,ops/us
+
+
+loading with file: /home/eddy/datasets/custom/uniform/insert_100/loada_unif_int.dat
+running with file: /home/eddy/datasets/custom/uniform/insert_100/txnsa_unif_int.dat
+bskiplist
+	Run, throughput: 14.111217 ,ops/us
+	Run, throughput: 13.984377 ,ops/us
+	Run, throughput: 14.117855 ,ops/us
+	Run, throughput: 13.820737 ,ops/us
+	Run, throughput: 14.040373 ,ops/us
+	Run, throughput: 13.948519 ,ops/us
+Percentile 50: 4015
+Percentile 90: 5196
+Percentile 99: 10612
+Percentile 99.9: 20563
+Percentile 99.99: 35510
+Max: 272795
+	Median Load throughput: 12.599263 ,ops/us
+	Median Run throughput: 13.984377 ,ops/us
+
+
+loading with file: /home/eddy/datasets/custom/uniform/insert_100/loada_unif_int.dat
+running with file: /home/eddy/datasets/custom/uniform/insert_100/txnsa_unif_int.dat
+bskiplist
+	Run, throughput: 28.300055 ,ops/us
+	Run, throughput: 28.433574 ,ops/us
+	Run, throughput: 28.282815 ,ops/us
+	Run, throughput: 22.592044 ,ops/us
+	Run, throughput: 28.165785 ,ops/us
+	Run, throughput: 28.351976 ,ops/us
+Percentile 50: 1940
+Percentile 90: 2371
+Percentile 99: 3320
+Percentile 99.9: 4849
+Percentile 99.99: 8804
+Max: 164794
+	Median Load throughput: 32.389147 ,ops/us
+	Median Run throughput: 28.282815 ,ops/us
+
+
+loading with file: /home/eddy/datasets/custom/uniform/insert_100/loada_unif_int.dat
+running with file: /home/eddy/datasets/custom/uniform/insert_100/txnsa_unif_int.dat
+bskiplist
+	Run, throughput: 23.064151 ,ops/us
+	Run, throughput: 22.742795 ,ops/us
+	Run, throughput: 22.535318 ,ops/us
+	Run, throughput: 20.737031 ,ops/us
+	Run, throughput: 22.519155 ,ops/us
+	Run, throughput: 22.687286 ,ops/us
+Percentile 50: 2292
+Percentile 90: 2865
+Percentile 99: 5121
+Percentile 99.9: 10582
+Percentile 99.99: 17789
+Max: 164909
+	Median Load throughput: 21.015507 ,ops/us
+	Median Run throughput: 22.535318 ,ops/us
+
+
+loading with file: /home/eddy/datasets/custom/uniform/insert_100/loada_unif_int.dat
+running with file: /home/eddy/datasets/custom/uniform/insert_100/txnsa_unif_int.dat
+bskiplist
+	Run, throughput: 14.487322 ,ops/us
+	Run, throughput: 14.481750 ,ops/us
+	Run, throughput: 14.506375 ,ops/us
+	Run, throughput: 14.133576 ,ops/us
+	Run, throughput: 14.471118 ,ops/us
+	Run, throughput: 14.245451 ,ops/us
+Percentile 50: 3994
+Percentile 90: 5155
+Percentile 99: 7692
+Percentile 99.9: 12272
+Percentile 99.99: 18182
+Max: 167412
+	Median Load throughput: 12.010406 ,ops/us
+	Median Run throughput: 14.471118 ,ops/us
+
+
+loading with file: /home/eddy/datasets/custom/uniform/insert_100/loada_unif_int.dat
+running with file: /home/eddy/datasets/custom/uniform/insert_100/txnsa_unif_int.dat
+bskiplist
+	Run, throughput: 28.023748 ,ops/us
+	Run, throughput: 27.745862 ,ops/us
+	Run, throughput: 28.040258 ,ops/us
+	Run, throughput: 22.399371 ,ops/us
+	Run, throughput: 27.901280 ,ops/us
+	Run, throughput: 27.920451 ,ops/us
+Percentile 50: 1975
+Percentile 90: 2360
+Percentile 99: 3217
+Percentile 99.9: 5143
+Percentile 99.99: 8691
+Max: 164292
+	Median Load throughput: 30.653558 ,ops/us
+	Median Run throughput: 27.901280 ,ops/us
+
+
+loading with file: /home/eddy/datasets/custom/uniform/insert_100/loada_unif_int.dat
+running with file: /home/eddy/datasets/custom/uniform/insert_100/txnsa_unif_int.dat
+bskiplist
+	Run, throughput: 21.847570 ,ops/us
+	Run, throughput: 22.091831 ,ops/us
+	Run, throughput: 22.443823 ,ops/us
+	Run, throughput: 20.522979 ,ops/us
+	Run, throughput: 21.602840 ,ops/us
+	Run, throughput: 22.063171 ,ops/us
+Percentile 50: 2507
+Percentile 90: 3023
+Percentile 99: 4105
+Percentile 99.9: 6376
+Percentile 99.99: 9576
+Max: 165858
+	Median Load throughput: 19.817226 ,ops/us
+	Median Run throughput: 22.063171 ,ops/us
+
+
+loading with file: /home/eddy/datasets/custom/uniform/insert_100/loada_unif_int.dat
+running with file: /home/eddy/datasets/custom/uniform/insert_100/txnsa_unif_int.dat
+bskiplist
+	Run, throughput: 13.637156 ,ops/us
+	Run, throughput: 13.780019 ,ops/us
+	Run, throughput: 13.537816 ,ops/us
+	Run, throughput: 13.499802 ,ops/us
+	Run, throughput: 13.640542 ,ops/us
+	Run, throughput: 13.548432 ,ops/us
+Percentile 50: 4136
+Percentile 90: 5471
+Percentile 99: 9538
+Percentile 99.9: 15386
+Percentile 99.99: 25987
+Max: 167433
+	Median Load throughput: 11.538134 ,ops/us
+	Median Run throughput: 13.548432 ,ops/us
+
+
+loading with file: /home/eddy/datasets/custom/uniform/insert_100/loada_unif_int.dat
+running with file: /home/eddy/datasets/custom/uniform/insert_100/txnsa_unif_int.dat
+bskiplist
+	Run, throughput: 22.684327 ,ops/us
+	Run, throughput: 22.450781 ,ops/us
+	Run, throughput: 22.759565 ,ops/us
+	Run, throughput: 20.500306 ,ops/us
+	Run, throughput: 22.735437 ,ops/us
+	Run, throughput: 22.714279 ,ops/us
+Percentile 50: 2578
+Percentile 90: 3020
+Percentile 99: 3813
+Percentile 99.9: 4799
+Percentile 99.99: 6589
+Max: 249348
+	Median Load throughput: 24.488622 ,ops/us
+	Median Run throughput: 22.714279 ,ops/us
+
+
+loading with file: /home/eddy/datasets/custom/uniform/insert_100/loada_unif_int.dat
+running with file: /home/eddy/datasets/custom/uniform/insert_100/txnsa_unif_int.dat
+bskiplist
+	Run, throughput: 19.214437 ,ops/us
+	Run, throughput: 19.206174 ,ops/us
+	Run, throughput: 19.146506 ,ops/us
+	Run, throughput: 18.185055 ,ops/us
+	Run, throughput: 19.088876 ,ops/us
+	Run, throughput: 18.801714 ,ops/us
+Percentile 50: 3104
+Percentile 90: 3643
+Percentile 99: 5045
+Percentile 99.9: 7471
+Percentile 99.99: 11213
+Max: 165678
+	Median Load throughput: 18.226835 ,ops/us
+	Median Run throughput: 19.088876 ,ops/us
+
+
+loading with file: /home/eddy/datasets/custom/uniform/insert_100/loada_unif_int.dat
+running with file: /home/eddy/datasets/custom/uniform/insert_100/txnsa_unif_int.dat
+bskiplist
+	Run, throughput: 9.734195 ,ops/us
+	Run, throughput: 9.754939 ,ops/us
+	Run, throughput: 9.774568 ,ops/us
+	Run, throughput: 9.702830 ,ops/us
+	Run, throughput: 9.790760 ,ops/us
+	Run, throughput: 9.787276 ,ops/us
+Percentile 50: 5202
+Percentile 90: 9778
+Percentile 99: 20829
+Percentile 99.9: 33621
+Percentile 99.99: 49228
+Max: 171880
+	Median Load throughput: 9.223430 ,ops/us
+	Median Run throughput: 9.774568 ,ops/us
+
+
+loading with file: /home/eddy/datasets/custom/uniform/insert_100/loada_unif_int.dat
+running with file: /home/eddy/datasets/custom/uniform/insert_100/txnsa_unif_int.dat
+bskiplist
+	Run, throughput: 15.685733 ,ops/us
+	Run, throughput: 15.600692 ,ops/us
+	Run, throughput: 15.567847 ,ops/us
+	Run, throughput: 15.236017 ,ops/us
+	Run, throughput: 15.632367 ,ops/us
+	Run, throughput: 15.571085 ,ops/us
+Percentile 50: 3900
+Percentile 90: 4452
+Percentile 99: 5499
+Percentile 99.9: 6500
+Percentile 99.99: 10171
+Max: 166568
+	Median Load throughput: 17.103841 ,ops/us
+	Median Run throughput: 15.571085 ,ops/us
+
+
+loading with file: /home/eddy/datasets/custom/uniform/insert_100/loada_unif_int.dat
+running with file: /home/eddy/datasets/custom/uniform/insert_100/txnsa_unif_int.dat
+bskiplist
+	Run, throughput: 12.642722 ,ops/us
+	Run, throughput: 12.715628 ,ops/us
+	Run, throughput: 12.667039 ,ops/us
+	Run, throughput: 12.452314 ,ops/us
+	Run, throughput: 12.534209 ,ops/us
+	Run, throughput: 12.562293 ,ops/us
+Percentile 50: 4732
+Percentile 90: 5625
+Percentile 99: 9262
+Percentile 99.9: 14428
+Percentile 99.99: 22032
+Max: 169781
+	Median Load throughput: 13.189233 ,ops/us
+	Median Run throughput: 12.562293 ,ops/us
+
+
+loading with file: /home/eddy/datasets/custom/uniform/insert_100/loada_unif_int.dat
+running with file: /home/eddy/datasets/custom/uniform/insert_100/txnsa_unif_int.dat
+bskiplist
+	Run, throughput: 10.862886 ,ops/us
+	Run, throughput: 10.737551 ,ops/us
+	Run, throughput: 10.757019 ,ops/us
+	Run, throughput: 10.611650 ,ops/us
+	Run, throughput: 10.784299 ,ops/us
+	Run, throughput: 10.802764 ,ops/us
+Percentile 50: 5410
+Percentile 90: 7200
+Percentile 99: 12956
+Percentile 99.9: 18371
+Percentile 99.99: 29027
+Max: 194195
+	Median Load throughput: 9.307352 ,ops/us
+	Median Run throughput: 10.757019 ,ops/us
+
+

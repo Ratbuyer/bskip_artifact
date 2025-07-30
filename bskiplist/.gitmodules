@@ -1,0 +1,9 @@
+[submodule "StructOfArrays"]
+	path = StructOfArrays
+	url = git@github.com:wheatman/StructOfArrays.git
+[submodule "parlaylib"]
+	path = parlaylib
+	url = https://github.com/cmuparlay/parlaylib.git
+[submodule "ParallelTools"]
+	path = ParallelTools
+	url = https://github.com/wheatman/ParallelTools.git

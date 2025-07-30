@@ -1,0 +1,285 @@
+loading with file: /home/eddy/datasets/custom/zipfian/insert_10/loada_unif_int.dat
+running with file: /home/eddy/datasets/custom/zipfian/insert_10/txnsa_unif_int.dat
+bskiplist
+	Load took 4960686 us, throughput = 20.158502 ops/us
+	Run, throughput: 22.811280 ,ops/us
+	Load took 4447957 us, throughput = 22.482232 ops/us
+	Run, throughput: 23.283988 ,ops/us
+	Load took 4490711 us, throughput = 22.268189 ops/us
+	Run, throughput: 23.586613 ,ops/us
+	Load took 4423211 us, throughput = 22.608010 ops/us
+	Run, throughput: 22.535064 ,ops/us
+	Load took 4524557 us, throughput = 22.101611 ops/us
+	Run, throughput: 22.987301 ,ops/us
+	Load took 4442459 us, throughput = 22.510056 ops/us
+	Run, throughput: 22.561421 ,ops/us
+	Median Load throughput: 22.482232 ,ops/us
+	Median Run throughput: 22.987301 ,ops/us
+
+
+loading with file: /home/eddy/datasets/custom/zipfian/insert_10/loada_unif_int.dat
+running with file: /home/eddy/datasets/custom/zipfian/insert_10/txnsa_unif_int.dat
+bskiplist
+	Load took 4935139 us, throughput = 20.262854 ops/us
+	Run, throughput: 43.223281 ,ops/us
+	Load took 4782306 us, throughput = 20.910414 ops/us
+	Run, throughput: 43.308567 ,ops/us
+	Load took 4794081 us, throughput = 20.859055 ops/us
+	Run, throughput: 43.610267 ,ops/us
+	Load took 4780510 us, throughput = 20.918270 ops/us
+	Run, throughput: 44.332549 ,ops/us
+	Load took 4790838 us, throughput = 20.873175 ops/us
+	Run, throughput: 42.789462 ,ops/us
+	Load took 4780796 us, throughput = 20.917019 ops/us
+	Run, throughput: 43.205969 ,ops/us
+	Median Load throughput: 20.910414 ,ops/us
+	Median Run throughput: 43.308567 ,ops/us
+
+
+loading with file: /home/eddy/datasets/custom/zipfian/insert_10/loada_unif_int.dat
+running with file: /home/eddy/datasets/custom/zipfian/insert_10/txnsa_unif_int.dat
+bskiplist
+	Load took 8084024 us, throughput = 12.370077 ops/us
+	Run, throughput: 40.120844 ,ops/us
+	Load took 7874656 us, throughput = 12.698967 ops/us
+	Run, throughput: 39.981752 ,ops/us
+	Load took 7915362 us, throughput = 12.633661 ops/us
+	Run, throughput: 40.631313 ,ops/us
+	Load took 7847097 us, throughput = 12.743566 ops/us
+	Run, throughput: 39.864763 ,ops/us
+	Load took 7874699 us, throughput = 12.698898 ops/us
+	Run, throughput: 40.465794 ,ops/us
+	Load took 7875932 us, throughput = 12.696910 ops/us
+	Run, throughput: 39.758317 ,ops/us
+	Median Load throughput: 12.698898 ,ops/us
+	Median Run throughput: 39.981752 ,ops/us
+
+
+loading with file: /home/eddy/datasets/custom/zipfian/insert_10/loada_unif_int.dat
+running with file: /home/eddy/datasets/custom/zipfian/insert_10/txnsa_unif_int.dat
+bskiplist
+	Load took 3211879 us, throughput = 31.134423 ops/us
+	Run, throughput: 48.640877 ,ops/us
+	Load took 3096687 us, throughput = 32.292576 ops/us
+	Run, throughput: 47.675964 ,ops/us
+	Load took 3090429 us, throughput = 32.357967 ops/us
+	Run, throughput: 49.253538 ,ops/us
+	Load took 3103874 us, throughput = 32.217803 ops/us
+	Run, throughput: 48.782106 ,ops/us
+	Load took 3099024 us, throughput = 32.268224 ops/us
+	Run, throughput: 48.258915 ,ops/us
+	Load took 3095030 us, throughput = 32.309865 ops/us
+	Run, throughput: 49.234817 ,ops/us
+	Median Load throughput: 32.292576 ,ops/us
+	Median Run throughput: 48.782106 ,ops/us
+
+
+loading with file: /home/eddy/datasets/custom/zipfian/insert_10/loada_unif_int.dat
+running with file: /home/eddy/datasets/custom/zipfian/insert_10/txnsa_unif_int.dat
+bskiplist
+	Load took 4977874 us, throughput = 20.088897 ops/us
+	Run, throughput: 47.575007 ,ops/us
+	Load took 4772120 us, throughput = 20.955047 ops/us
+	Run, throughput: 46.646991 ,ops/us
+	Load took 4791617 us, throughput = 20.869782 ops/us
+	Run, throughput: 46.554220 ,ops/us
+	Load took 4779428 us, throughput = 20.923006 ops/us
+	Run, throughput: 47.873644 ,ops/us
+	Load took 4783370 us, throughput = 20.905763 ops/us
+	Run, throughput: 47.731626 ,ops/us
+	Load took 4776773 us, throughput = 20.934635 ops/us
+	Run, throughput: 46.805720 ,ops/us
+	Median Load throughput: 20.923006 ,ops/us
+	Median Run throughput: 46.805720 ,ops/us
+
+
+loading with file: /home/eddy/datasets/custom/zipfian/insert_10/loada_unif_int.dat
+running with file: /home/eddy/datasets/custom/zipfian/insert_10/txnsa_unif_int.dat
+bskiplist
+	Load took 8643310 us, throughput = 11.569642 ops/us
+	Run, throughput: 40.893390 ,ops/us
+	Load took 8280756 us, throughput = 12.076192 ops/us
+	Run, throughput: 40.772143 ,ops/us
+	Load took 8298419 us, throughput = 12.050488 ops/us
+	Run, throughput: 40.720542 ,ops/us
+	Load took 8295673 us, throughput = 12.054477 ops/us
+	Run, throughput: 40.866400 ,ops/us
+	Load took 8311401 us, throughput = 12.031666 ops/us
+	Run, throughput: 40.978787 ,ops/us
+	Load took 8303490 us, throughput = 12.043129 ops/us
+	Run, throughput: 39.928177 ,ops/us
+	Median Load throughput: 12.050488 ,ops/us
+	Median Run throughput: 40.772143 ,ops/us
+
+
+loading with file: /home/eddy/datasets/custom/zipfian/insert_10/loada_unif_int.dat
+running with file: /home/eddy/datasets/custom/zipfian/insert_10/txnsa_unif_int.dat
+bskiplist
+	Load took 3393655 us, throughput = 29.466755 ops/us
+	Run, throughput: 47.691380 ,ops/us
+	Load took 3243522 us, throughput = 30.830683 ops/us
+	Run, throughput: 48.060934 ,ops/us
+	Load took 3255307 us, throughput = 30.719069 ops/us
+	Run, throughput: 48.675799 ,ops/us
+	Load took 3252624 us, throughput = 30.744408 ops/us
+	Run, throughput: 47.501493 ,ops/us
+	Load took 3268421 us, throughput = 30.595814 ops/us
+	Run, throughput: 47.932182 ,ops/us
+	Load took 3253438 us, throughput = 30.736716 ops/us
+	Run, throughput: 48.328580 ,ops/us
+	Median Load throughput: 30.736716 ,ops/us
+	Median Run throughput: 48.060934 ,ops/us
+
+
+loading with file: /home/eddy/datasets/custom/zipfian/insert_10/loada_unif_int.dat
+running with file: /home/eddy/datasets/custom/zipfian/insert_10/txnsa_unif_int.dat
+bskiplist
+	Load took 5284352 us, throughput = 18.923796 ops/us
+	Run, throughput: 43.582214 ,ops/us
+	Load took 4983341 us, throughput = 20.066859 ops/us
+	Run, throughput: 43.050581 ,ops/us
+	Load took 4994842 us, throughput = 20.020653 ops/us
+	Run, throughput: 43.660610 ,ops/us
+	Load took 4980010 us, throughput = 20.080281 ops/us
+	Run, throughput: 43.436015 ,ops/us
+	Load took 4982957 us, throughput = 20.068405 ops/us
+	Run, throughput: 43.003576 ,ops/us
+	Load took 4975771 us, throughput = 20.097388 ops/us
+	Run, throughput: 42.775954 ,ops/us
+	Median Load throughput: 20.068405 ,ops/us
+	Median Run throughput: 43.050581 ,ops/us
+
+
+loading with file: /home/eddy/datasets/custom/zipfian/insert_10/loada_unif_int.dat
+running with file: /home/eddy/datasets/custom/zipfian/insert_10/txnsa_unif_int.dat
+bskiplist
+	Load took 9063353 us, throughput = 11.033444 ops/us
+	Run, throughput: 39.684839 ,ops/us
+	Load took 8655852 us, throughput = 11.552878 ops/us
+	Run, throughput: 39.659688 ,ops/us
+	Load took 8670020 us, throughput = 11.533999 ops/us
+	Run, throughput: 38.580039 ,ops/us
+	Load took 8617166 us, throughput = 11.604743 ops/us
+	Run, throughput: 38.334122 ,ops/us
+	Load took 8640950 us, throughput = 11.572802 ops/us
+	Run, throughput: 39.347307 ,ops/us
+	Load took 8599559 us, throughput = 11.628503 ops/us
+	Run, throughput: 39.420720 ,ops/us
+	Median Load throughput: 11.572802 ,ops/us
+	Median Run throughput: 39.347307 ,ops/us
+
+
+loading with file: /home/eddy/datasets/custom/zipfian/insert_10/loada_unif_int.dat
+running with file: /home/eddy/datasets/custom/zipfian/insert_10/txnsa_unif_int.dat
+bskiplist
+	Load took 4271788 us, throughput = 23.409401 ops/us
+	Run, throughput: 39.573634 ,ops/us
+	Load took 4128439 us, throughput = 24.222230 ops/us
+	Run, throughput: 40.067554 ,ops/us
+	Load took 4162726 us, throughput = 24.022720 ops/us
+	Run, throughput: 39.991090 ,ops/us
+	Load took 4166540 us, throughput = 24.000730 ops/us
+	Run, throughput: 40.140556 ,ops/us
+	Load took 4157614 us, throughput = 24.052257 ops/us
+	Run, throughput: 39.985365 ,ops/us
+	Load took 4168979 us, throughput = 23.986688 ops/us
+	Run, throughput: 39.856040 ,ops/us
+	Median Load throughput: 24.022720 ,ops/us
+	Median Run throughput: 39.991090 ,ops/us
+
+
+loading with file: /home/eddy/datasets/custom/zipfian/insert_10/loada_unif_int.dat
+running with file: /home/eddy/datasets/custom/zipfian/insert_10/txnsa_unif_int.dat
+bskiplist
+	Load took 5744384 us, throughput = 17.408307 ops/us
+	Run, throughput: 38.272897 ,ops/us
+	Load took 5498545 us, throughput = 18.186629 ops/us
+	Run, throughput: 37.803496 ,ops/us
+	Load took 5532146 us, throughput = 18.076168 ops/us
+	Run, throughput: 37.673709 ,ops/us
+	Load took 5498803 us, throughput = 18.185776 ops/us
+	Run, throughput: 37.942557 ,ops/us
+	Load took 5466077 us, throughput = 18.294656 ops/us
+	Run, throughput: 38.039100 ,ops/us
+	Load took 5492254 us, throughput = 18.207461 ops/us
+	Run, throughput: 37.581919 ,ops/us
+	Median Load throughput: 18.186629 ,ops/us
+	Median Run throughput: 37.803496 ,ops/us
+
+
+loading with file: /home/eddy/datasets/custom/zipfian/insert_10/loada_unif_int.dat
+running with file: /home/eddy/datasets/custom/zipfian/insert_10/txnsa_unif_int.dat
+bskiplist
+	Load took 11133782 us, throughput = 8.981674 ops/us
+	Run, throughput: 31.294732 ,ops/us
+	Load took 10629748 us, throughput = 9.407561 ops/us
+	Run, throughput: 31.417475 ,ops/us
+	Load took 10730442 us, throughput = 9.319281 ops/us
+	Run, throughput: 31.304813 ,ops/us
+	Load took 10807755 us, throughput = 9.252615 ops/us
+	Run, throughput: 31.047676 ,ops/us
+	Load took 10751285 us, throughput = 9.301214 ops/us
+	Run, throughput: 31.405713 ,ops/us
+	Load took 10742303 us, throughput = 9.308991 ops/us
+	Run, throughput: 31.474313 ,ops/us
+	Median Load throughput: 9.308991 ,ops/us
+	Median Run throughput: 31.405713 ,ops/us
+
+
+loading with file: /home/eddy/datasets/custom/zipfian/insert_10/loada_unif_int.dat
+running with file: /home/eddy/datasets/custom/zipfian/insert_10/txnsa_unif_int.dat
+bskiplist
+	Load took 6014784 us, throughput = 16.625701 ops/us
+	Run, throughput: 31.948565 ,ops/us
+	Load took 5828427 us, throughput = 17.157288 ops/us
+	Run, throughput: 32.057519 ,ops/us
+	Load took 5843397 us, throughput = 17.113333 ops/us
+	Run, throughput: 31.929122 ,ops/us
+	Load took 5858810 us, throughput = 17.068313 ops/us
+	Run, throughput: 31.941310 ,ops/us
+	Load took 5865895 us, throughput = 17.047697 ops/us
+	Run, throughput: 31.990715 ,ops/us
+	Load took 5863537 us, throughput = 17.054553 ops/us
+	Run, throughput: 31.938688 ,ops/us
+	Median Load throughput: 17.068313 ,ops/us
+	Median Run throughput: 31.941310 ,ops/us
+
+
+loading with file: /home/eddy/datasets/custom/zipfian/insert_10/loada_unif_int.dat
+running with file: /home/eddy/datasets/custom/zipfian/insert_10/txnsa_unif_int.dat
+bskiplist
+	Load took 7854303 us, throughput = 12.731874 ops/us
+	Run, throughput: 24.620324 ,ops/us
+	Load took 7751372 us, throughput = 12.900942 ops/us
+	Run, throughput: 24.711133 ,ops/us
+	Load took 7802770 us, throughput = 12.815962 ops/us
+	Run, throughput: 24.801944 ,ops/us
+	Load took 7689596 us, throughput = 13.004584 ops/us
+	Run, throughput: 24.712922 ,ops/us
+	Load took 7621538 us, throughput = 13.120711 ops/us
+	Run, throughput: 24.553718 ,ops/us
+	Load took 7646703 us, throughput = 13.077532 ops/us
+	Run, throughput: 24.627588 ,ops/us
+	Median Load throughput: 13.004584 ,ops/us
+	Median Run throughput: 24.711133 ,ops/us
+
+
+loading with file: /home/eddy/datasets/custom/zipfian/insert_10/loada_unif_int.dat
+running with file: /home/eddy/datasets/custom/zipfian/insert_10/txnsa_unif_int.dat
+bskiplist
+	Load took 11349607 us, throughput = 8.810878 ops/us
+	Run, throughput: 27.364760 ,ops/us
+	Load took 10824396 us, throughput = 9.238391 ops/us
+	Run, throughput: 27.167453 ,ops/us
+	Load took 10702494 us, throughput = 9.343617 ops/us
+	Run, throughput: 27.070171 ,ops/us
+	Load took 10604747 us, throughput = 9.429739 ops/us
+	Run, throughput: 27.167608 ,ops/us
+	Load took 10930219 us, throughput = 9.148948 ops/us
+	Run, throughput: 27.237217 ,ops/us
+	Load took 10776267 us, throughput = 9.279651 ops/us
+	Run, throughput: 27.341573 ,ops/us
+	Median Load throughput: 9.279651 ,ops/us
+	Median Run throughput: 27.167608 ,ops/us
+
+

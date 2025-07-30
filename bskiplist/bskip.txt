@@ -1,0 +1,58 @@
+eddy@pop-os:~/repo/bskiplist$ ./ycsb  btree a randint uniform 16
+btree, workloada, randint, uniform, threads 16
+Loaded 100000000 keys
+Loaded 100000000 more keys
+Slept
+	Load took 12771048 us, throughput = 7.830211 ops/us
+	Run, throughput: 7.446811 ,ops/us
+	total key sum = 0, total val sum = 0
+
+	Load took 11210922 us, throughput = 8.919873 ops/us
+	Run, throughput: 7.357858 ,ops/us
+	total key sum = 0, total val sum = 0
+
+	Load took 11564334 us, throughput = 8.647277 ops/us
+	Run, throughput: 7.784069 ,ops/us
+	total key sum = 0, total val sum = 0
+
+	Load took 11871372 us, throughput = 8.423626 ops/us
+	Run, throughput: 7.380838 ,ops/us
+	total key sum = 0, total val sum = 0
+
+	Load took 11341915 us, throughput = 8.816853 ops/us
+	Run, throughput: 7.612610 ,ops/us
+	total key sum = 0, total val sum = 0
+
+	Load took 12128208 us, throughput = 8.245241 ops/us
+	Run, throughput: 7.365751 ,ops/us
+	total key sum = 0, total val sum = 0
+
+
+eddy@pop-os:~/repo/bskiplist$ ./ycsb  btree b randint uniform 16
+btree, workloadb, randint, uniform, threads 16
+Loaded 100000000 keys
+Loaded 100000000 more keys
+Slept
+	Load took 10816875 us, throughput = 9.244814 ops/us
+	Run, throughput: 9.132777 ,ops/us
+	total key sum = 0, total val sum = 0
+
+	Load took 10463677 us, throughput = 9.556870 ops/us
+	Run, throughput: 9.954178 ,ops/us
+	total key sum = 0, total val sum = 0
+
+	Load took 10721693 us, throughput = 9.326885 ops/us
+	Run, throughput: 9.254669 ,ops/us
+	total key sum = 0, total val sum = 0
+
+	Load took 10742501 us, throughput = 9.308819 ops/us
+	Run, throughput: 9.837023 ,ops/us
+	total key sum = 0, total val sum = 0
+
+	Load took 11324884 us, throughput = 8.830113 ops/us
+	Run, throughput: 8.380635 ,ops/us
+	total key sum = 0, total val sum = 0
+
+	Load took 10830687 us, throughput = 9.233025 ops/us
+	Run, throughput: 9.242137 ,ops/us
+	total key sum = 0, total val sum = 0
