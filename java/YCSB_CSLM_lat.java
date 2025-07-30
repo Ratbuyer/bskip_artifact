@@ -25,7 +25,7 @@ public class YCSB_CSLM_lat {
   }
 
   // constants, since java has no global variables
-  public static int RUN_SIZE = 100000000;
+  public static int RUN_SIZE = 100000;
 
   // Percentile calculation yoinked from stackoverflow
   public static long percentile(List<Long> latencies, double percentile) {
@@ -41,7 +41,7 @@ public class YCSB_CSLM_lat {
     for (int n = 0; n < num_threads; n++) {
       final int thread_start = start + per_thread * n;
       final int thread_end = (n == num_threads - 1) ? end : thread_start + per_thread;
-      
+
       // starts a thread for a range
       executor.submit(() -> {
         for(int j = thread_start; j < thread_end; j++) {
@@ -160,17 +160,17 @@ public class YCSB_CSLM_lat {
         if (ops.get(i) == OpCodes.SCAN) {
             long startKey = keys.get(i);
             long scanLength = range_lengths.get(i);
-            
+
             // Find position of start key in sorted list
             int startPos = Collections.binarySearch(init_keys, startKey);
             if (startPos < 0) {
                 // Key not found, get insertion point
                 startPos = -startPos - 1;
             }
-            
+
             // Calculate end position with bounds check
             int endPos = (int)Math.min(startPos + scanLength, init_keys.size() - 1);
-            
+
             // Get actual end key value
             long endKey = (endPos < init_keys.size()) ? init_keys.get(endPos) : Long.MAX_VALUE;
             end_keys.add(endKey);
@@ -198,7 +198,7 @@ public class YCSB_CSLM_lat {
     // do index ops
     // process operations 6 times
     for (int k = 0; k < 6; k++) {
-      // Create the skiplist, 
+      // Create the skiplist,
       ConcurrentSkipListMap<Long, Long> map = new ConcurrentSkipListMap<>();
 
       int batch_size = 10;
@@ -303,10 +303,10 @@ public class YCSB_CSLM_lat {
             long startKey = keys.get(index);
             long scanLength = range_lengths.get(index);
             long endKey = end_keys.get(index);
-            
+
             // Efficient subMap operation using pre-calculated keys
             var smap = map.subMap(startKey, true, endKey, true);
-            
+
             // Process entries in the submap
             long sum = 0;
             for (var entry : smap.entrySet()) {
@@ -314,12 +314,12 @@ public class YCSB_CSLM_lat {
                 // Stop if we've processed enough entries
                 if (--scanLength <= 0) break;
             }
-            
+
             // Prevent optimization from eliminating the calculation
             // if (sum < 0 && i % 1000000 == 0) {
             //     System.out.println("Sample scan sum: " + sum);
             // }
-            
+
             break;
             default:
               System.out.println("Something broke while executing index operations");

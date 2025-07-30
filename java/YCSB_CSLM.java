@@ -108,7 +108,7 @@ public class YCSB_CSLM {
       System.out.println("Error on reading load file");
       System.out.println(e.getMessage());
     }
-    
+
     // Sort the initial keys to help with end key calculation for scans
     ArrayList<Long> load_keys = new ArrayList<>(init_keys);
     Collections.sort(init_keys);
@@ -154,24 +154,24 @@ public class YCSB_CSLM {
       System.out.println("Error on reading index file");
       System.out.println(e.getMessage());
     }
-    
+
     // Pre-calculate end keys for all SCAN operations
     System.out.println("Pre-calculating end keys for SCAN operations...");
     for (int i = 0; i < ops.size(); i++) {
         if (ops.get(i) == OpCodes.SCAN) {
             long startKey = keys.get(i);
             long scanLength = range_lengths.get(i);
-            
+
             // Find position of start key in sorted list
             int startPos = Collections.binarySearch(init_keys, startKey);
             if (startPos < 0) {
                 // Key not found, get insertion point
                 startPos = -startPos - 1;
             }
-            
+
             // Calculate end position with bounds check
             int endPos = (int)Math.min(startPos + scanLength, init_keys.size() - 1);
-            
+
             // Get actual end key value
             long endKey = (endPos < init_keys.size()) ? init_keys.get(endPos) : Long.MAX_VALUE;
             end_keys.add(endKey);
@@ -242,15 +242,15 @@ public class YCSB_CSLM {
             break;
           case SCAN:
             // s_counter.incrementAndGet();
-            
+
             // Use pre-calculated end key
             long startKey = keys.get(i);
             long scanLength = range_lengths.get(i);
             long endKey = end_keys.get(i);
-            
+
             // Efficient subMap operation using pre-calculated keys
             var smap = map.subMap(startKey, true, endKey, true);
-            
+
             // Process entries in the submap
             long sum = 0;
             for (var entry : smap.entrySet()) {
@@ -262,19 +262,19 @@ public class YCSB_CSLM {
             if (i == 0) {
                 System.out.println("Sample scan sum: " + sum);
             }
-            
+
             // Prevent optimization from eliminating the calculation
             // if (sum < 0 && i % 1000000 == 0) {
             //     System.out.println("Sample scan sum: " + sum);
             // }
-            
+
             break;
           default:
             System.out.println("Something broke while executing index operations");
             break;
         }
       });
-      
+
       Instant run_end = Instant.now();
       Duration run_duration = Duration.between(run_start, run_end);
 
