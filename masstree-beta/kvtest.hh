@@ -25,6 +25,10 @@
 #include <random>
 #include <atomic>
 
+#include <filesystem>
+
+namespace fs = std::filesystem;
+
 
 #ifndef EXAMPLE_H
 #define EXAMPLE_H
@@ -126,7 +130,7 @@ unsigned kvtest_rw1puts_seed(C& client, int seed, int tid) {
     ycsb_data* ycdata = get_ycsb_data();
 
     uint64_t per_thread = ycdata->init_keys.size() / client.nthreads();
-    uint64_t start = tid * (per_thread); 
+    uint64_t start = tid * (per_thread);
     uint64_t end = start + per_thread;
     if(tid == client.nthreads()-1){
         end = ycdata->init_keys.size();
@@ -148,6 +152,8 @@ unsigned kvtest_rw1puts_seed(C& client, int seed, int tid) {
       auto end_time = std::chrono::high_resolution_clock::now();
       latencies.push_back(std::chrono::duration_cast<std::chrono::nanoseconds>(end_time - start_time).count() / 10);
     }
+
+    fs::create_directories("latencydata");
 
     std::ofstream output("latencydata/latencyload" + std::to_string(start+1) + ".txt", ios::trunc);
     for (uint64_t laten : latencies) {
@@ -195,7 +201,7 @@ void kvtest_rw1run(C &client){
 
     ycsb_data* ycdata = get_ycsb_data();
     uint64_t per_thread = ycdata->ops.size() / client.nthreads();
-    uint64_t start = tid * (per_thread); 
+    uint64_t start = tid * (per_thread);
     uint64_t end = start + per_thread;
     if(tid == client.nthreads()-1){
         end = ycdata->ops.size();
@@ -318,7 +324,7 @@ void kvtest_rw1_seed(C &client, int seed)
 {
     int tid = atomic_count++;
     unsigned n = kvtest_rw1puts_seed(client, seed, tid);
- 
+
 }
 
 template <typename C>

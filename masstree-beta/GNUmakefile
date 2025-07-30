@@ -1,13 +1,13 @@
 AR = ar
 CC = gcc
 CXX = g++
-CPPFLAGS = 
+CPPFLAGS =
 CXXFLAGS = -g -W -Wall -O3
 RANLIB = ranlib
 DEPSDIR := .deps
 DEPCFLAGS = -MD -MF $(DEPSDIR)/$*.d -MP
 ifeq ($(strip $(MEMMGR)), )
-  MEMMGR = -ljemalloc
+  MEMMGR =
 endif
 ifneq ($(strip $(KEYSWAP)), )
   CPPFLAGS += -DKEYSWAP
@@ -19,7 +19,7 @@ ifneq ($(strip $(NOSUPERPAGE)), )
   CPPFLAGS += -DNOSUPERPAGE
 endif
 LIBS = -lnuma  -lpthread -lm
-LDFLAGS = 
+LDFLAGS =
 
 all: test_atomics mtd mtclient mttest
 
@@ -95,7 +95,8 @@ stamp-h: config.h.in config.status
 clean:
 	rm -f mtd mtclient mttest test_string test_atomics *.o libjson.a
 	rm -rf .deps
-	rm -rf latencydata/*
+	rm -rf latencydata
+	rm -f notebook-mttest.json
 
 DEPFILES := $(wildcard $(DEPSDIR)/*.d)
 ifneq ($(DEPFILES),)
