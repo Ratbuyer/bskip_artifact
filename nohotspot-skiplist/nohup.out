@@ -1,0 +1,260 @@
+Loaded 100000000 keys
+Loaded 100000000 more keys
+Slept
+loading with file: /home/eddy/datasets/uniform/loadc_unif_int.dat
+running with file: /home/eddy/datasets/uniform/txnsc_unif_int.dat
+bskiplist
+	Load took 33764259 us, throughput = 2.961712 ops/us
+levels before rebalance: 14
+larget level: 26
+levels after rebalance: 26
+	Run, throughput: 6.371526 ,ops/us
+	Load took 35119464 us, throughput = 2.847424 ops/us
+levels before rebalance: 14
+larget level: 26
+levels after rebalance: 26
+	Run, throughput: 6.359880 ,ops/us
+	Load took 34530181 us, throughput = 2.896017 ops/us
+levels before rebalance: 14
+larget level: 26
+levels after rebalance: 26
+	Run, throughput: 6.488197 ,ops/us
+	Load took 33838541 us, throughput = 2.955210 ops/us
+levels before rebalance: 14
+larget level: 26
+levels after rebalance: 26
+	Run, throughput: 6.292412 ,ops/us
+	Load took 33732110 us, throughput = 2.964534 ops/us
+levels before rebalance: 14
+larget level: 26
+levels after rebalance: 26
+	Run, throughput: 6.456924 ,ops/us
+	Load took 31572926 us, throughput = 3.167271 ops/us
+levels before rebalance: 14
+larget level: 26
+levels after rebalance: 26
+	Run, throughput: 6.368018 ,ops/us
+Percentile 50: 8531
+Percentile 90: 18193
+Percentile 99: 24902
+Percentile 99.9: 28995
+Percentile 99.99: 32525
+Max: 19794045
+Percentile 50: 2379
+Percentile 90: 3216
+Percentile 99: 11431
+Percentile 99.9: 112752
+Percentile 99.99: 901363
+Max: 420811364
+	Median Load throughput: 2.955210 ,ops/us
+	Median Run throughput: 6.368018 ,ops/us
+
+
+Loaded 100000000 keys
+Loaded 100000000 more keys
+Slept
+loading with file: /home/eddy/datasets/uniform/loadc_unif_int.dat
+running with file: /home/eddy/datasets/uniform/txnsc_unif_int.dat
+bskiplist
+	Load took 32444858 us, throughput = 3.082152 ops/us
+levels before rebalance: 15
+larget level: 26
+levels after rebalance: 26
+	Run, throughput: 3.499562 ,ops/us
+	Load took 31789772 us, throughput = 3.145666 ops/us
+levels before rebalance: 15
+larget level: 26
+levels after rebalance: 26
+	Run, throughput: 3.509212 ,ops/us
+	Load took 30325478 us, throughput = 3.297557 ops/us
+levels before rebalance: 15
+larget level: 26
+levels after rebalance: 26
+	Run, throughput: 3.514477 ,ops/us
+	Load took 30179150 us, throughput = 3.313546 ops/us
+levels before rebalance: 15
+larget level: 26
+levels after rebalance: 26
+	Run, throughput: 3.489228 ,ops/us
+	Load took 30487922 us, throughput = 3.279987 ops/us
+levels before rebalance: 15
+larget level: 26
+levels after rebalance: 26
+	Run, throughput: 3.502886 ,ops/us
+	Load took 30640190 us, throughput = 3.263687 ops/us
+levels before rebalance: 15
+larget level: 26
+levels after rebalance: 26
+	Run, throughput: 3.485122 ,ops/us
+Percentile 50: 4454
+Percentile 90: 5349
+Percentile 99: 6046
+Percentile 99.9: 6644
+Percentile 99.99: 9183
+Max: 15585472
+Percentile 50: 2192
+Percentile 90: 2984
+Percentile 99: 10830
+Percentile 99.9: 105272
+Percentile 99.99: 841840
+Max: 431606962
+	Median Load throughput: 3.279987 ,ops/us
+	Median Run throughput: 3.502886 ,ops/us
+
+
+Loaded 100000000 keys
+Loaded 100000000 more keys
+Slept
+loading with file: /home/eddy/datasets/uniform/loadc_unif_int.dat
+running with file: /home/eddy/datasets/uniform/txnsc_unif_int.dat
+bskiplist
+	Load took 36394218 us, throughput = 2.747689 ops/us
+levels before rebalance: 17
+larget level: 26
+levels after rebalance: 26
+	Run, throughput: 1.889381 ,ops/us
+	Load took 36428127 us, throughput = 2.745132 ops/us
+levels before rebalance: 17
+larget level: 26
+levels after rebalance: 26
+	Run, throughput: 1.889187 ,ops/us
+	Load took 36511430 us, throughput = 2.738868 ops/us
+levels before rebalance: 17
+larget level: 26
+levels after rebalance: 26
+	Run, throughput: 1.891417 ,ops/us
+	Load took 36373343 us, throughput = 2.749266 ops/us
+levels before rebalance: 17
+larget level: 26
+levels after rebalance: 26
+	Run, throughput: 1.877147 ,ops/us
+	Load took 36639975 us, throughput = 2.729260 ops/us
+levels before rebalance: 17
+larget level: 26
+levels after rebalance: 26
+	Run, throughput: 1.899148 ,ops/us
+	Load took 36187527 us, throughput = 2.763383 ops/us
+levels before rebalance: 17
+larget level: 26
+levels after rebalance: 26
+	Run, throughput: 1.893383 ,ops/us
+Percentile 50: 2513
+Percentile 90: 2834
+Percentile 99: 3074
+Percentile 99.9: 3312
+Percentile 99.99: 4442
+Max: 16596397
+Percentile 50: 2152
+Percentile 90: 2918
+Percentile 99: 10549
+Percentile 99.9: 102911
+Percentile 99.99: 822948
+Max: 427144298
+	Median Load throughput: 2.745132 ,ops/us
+	Median Run throughput: 1.891417 ,ops/us
+
+
+Loaded 100000000 keys
+Loaded 100000000 more keys
+Slept
+loading with file: /home/eddy/datasets/uniform/loadc_unif_int.dat
+running with file: /home/eddy/datasets/uniform/txnsc_unif_int.dat
+bskiplist
+	Load took 77497967 us, throughput = 1.290356 ops/us
+levels before rebalance: 22
+larget level: 26
+levels after rebalance: 26
+	Run, throughput: 0.874848 ,ops/us
+	Load took 77157430 us, throughput = 1.296051 ops/us
+levels before rebalance: 22
+larget level: 26
+levels after rebalance: 26
+	Run, throughput: 0.877202 ,ops/us
+	Load took 76894158 us, throughput = 1.300489 ops/us
+levels before rebalance: 22
+larget level: 26
+levels after rebalance: 26
+	Run, throughput: 0.895776 ,ops/us
+	Load took 77640728 us, throughput = 1.287984 ops/us
+levels before rebalance: 22
+larget level: 26
+levels after rebalance: 26
+	Run, throughput: 0.873532 ,ops/us
+	Load took 77389015 us, throughput = 1.292173 ops/us
+levels before rebalance: 22
+larget level: 26
+levels after rebalance: 26
+	Run, throughput: 0.876461 ,ops/us
+	Load took 76912571 us, throughput = 1.300178 ops/us
+levels before rebalance: 22
+larget level: 26
+levels after rebalance: 26
+	Run, throughput: 0.876726 ,ops/us
+Percentile 50: 2327
+Percentile 90: 2706
+Percentile 99: 2960
+Percentile 99.9: 3182
+Percentile 99.99: 3876
+Max: 13407684
+Percentile 50: 2157
+Percentile 90: 2913
+Percentile 99: 10440
+Percentile 99.9: 104033
+Percentile 99.99: 829512
+Max: 420596140
+	Median Load throughput: 1.296051 ,ops/us
+	Median Run throughput: 0.876726 ,ops/us
+
+
+Loaded 100000000 keys
+Loaded 100000000 more keys
+Slept
+loading with file: /home/eddy/datasets/uniform/loadc_unif_int.dat
+running with file: /home/eddy/datasets/uniform/txnsc_unif_int.dat
+bskiplist
+	Load took 240606547 us, throughput = 0.415616 ops/us
+levels before rebalance: 22
+larget level: 26
+levels after rebalance: 26
+	Run, throughput: 0.294743 ,ops/us
+	Load took 243228603 us, throughput = 0.411136 ops/us
+levels before rebalance: 22
+larget level: 26
+levels after rebalance: 26
+	Run, throughput: 0.294838 ,ops/us
+	Load took 239567470 us, throughput = 0.417419 ops/us
+levels before rebalance: 22
+larget level: 26
+levels after rebalance: 26
+	Run, throughput: 0.294621 ,ops/us
+	Load took 243549420 us, throughput = 0.410594 ops/us
+levels before rebalance: 22
+larget level: 26
+levels after rebalance: 26
+	Run, throughput: 0.295175 ,ops/us
+	Load took 243591514 us, throughput = 0.410523 ops/us
+levels before rebalance: 22
+larget level: 26
+levels after rebalance: 26
+	Run, throughput: 0.295196 ,ops/us
+	Load took 243338048 us, throughput = 0.410951 ops/us
+levels before rebalance: 22
+larget level: 26
+levels after rebalance: 26
+	Run, throughput: 0.295613 ,ops/us
+Percentile 50: 2524
+Percentile 90: 2908
+Percentile 99: 3156
+Percentile 99.9: 3367
+Percentile 99.99: 3711
+Max: 7838568
+Percentile 50: 2204
+Percentile 90: 2963
+Percentile 99: 10504
+Percentile 99.9: 105490
+Percentile 99.99: 830360
+Max: 423361334
+	Median Load throughput: 0.410951 ,ops/us
+	Median Run throughput: 0.295175 ,ops/us
+
+

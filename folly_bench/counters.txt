@@ -1,0 +1,497 @@
+brian@sn4622111117:~/folly_bench$ LD_LIBRARY_PATH=/home/brian/glog/build/:$LD_LIBRARY_PATH numactl -N 1 -m 1 perf stat -d -d -d ./ycsb ../../eddy/datasets/uniform/ a 64 outa.txt 
+loading with file: ../../eddy/datasets/uniform/loada_unif_int.dat
+running with file: ../../eddy/datasets/uniform/txnsa_unif_int.dat
+Loaded 100000000 keys
+Loaded 100000000 more keys
+Slept
+bskiplist
+        Load took 10544708 us, throughput = 9.483430 ops/us
+        Run, throughput: 8.397114 ,ops/us
+        Load took 9753832 us, throughput = 10.252381 ops/us
+        Run, throughput: 12.030506 ,ops/us
+        Load took 9987558 us, throughput = 10.012457 ops/us
+        Run, throughput: 12.206478 ,ops/us
+        Load took 10225377 us, throughput = 9.779591 ops/us
+        Run, throughput: 12.110602 ,ops/us
+        Load took 9659092 us, throughput = 10.352940 ops/us
+        Run, throughput: 12.223247 ,ops/us
+        Load took 10087003 us, throughput = 9.913747 ops/us
+        Run, throughput: 12.119164 ,ops/us
+        Median Load throughput: 10.012457 ,ops/us
+        Median Run throughput: 12.119164 ,ops/us
+
+
+
+ Performance counter stats for './ycsb ../../eddy/datasets/uniform/ a 64 outa.txt':
+
+      7,231,785.78 msec task-clock                #   27.998 CPUs utilized          
+             6,032      context-switches          #    0.001 K/sec                  
+               106      cpu-migrations            #    0.000 K/sec                  
+         2,234,443      page-faults               #    0.309 K/sec                  
+18,435,302,420,611      cycles                    #    2.549 GHz                      (41.67%)
+ 8,850,209,651,217      instructions              #    0.48  insn per cycle           (50.01%)
+ 1,466,694,702,285      branches                  #  202.812 M/sec                    (58.34%)
+    22,123,831,737      branch-misses             #    1.51% of all branches          (66.67%)
+ 2,706,953,217,265      L1-dcache-loads           #  374.313 M/sec                    (66.67%)
+   339,205,946,027      L1-dcache-load-misses     #   12.53% of all L1-dcache hits    (66.67%)
+    97,533,467,313      LLC-loads                 #   13.487 M/sec                    (66.67%)
+    31,982,663,554      LLC-load-misses           #   32.79% of all LL-cache hits     (66.66%)
+   <not supported>      L1-icache-loads                                             
+       538,322,492      L1-icache-load-misses                                         (33.33%)
+ 2,709,055,799,804      dTLB-loads                #  374.604 M/sec                    (33.33%)
+    66,247,262,743      dTLB-load-misses          #    2.45% of all dTLB cache hits   (33.33%)
+   <not supported>      iTLB-loads                                                  
+         6,258,044      iTLB-load-misses                                              (33.34%)
+   <not supported>      L1-dcache-prefetches                                        
+   <not supported>      L1-dcache-prefetch-misses                                   
+
+     258.295722928 seconds time elapsed
+
+    7223.254209000 seconds user
+       8.631123000 seconds sys
+
+
+
+brian@sn4622111117:~/folly_bench$ LD_LIBRARY_PATH=/home/brian/glog/build/:$LD_LIBRARY_PATH numactl -N 1 -m 1 perf stat -d -d -d ./ycsb ../../eddy/datasets/uniform/ b 64 outb.txt 
+loading with file: ../../eddy/datasets/uniform/loadb_unif_int.dat
+running with file: ../../eddy/datasets/uniform/txnsb_unif_int.dat
+Loaded 100000000 keys
+Loaded 100000000 more keys
+Slept
+bskiplist
+        Load took 10795227 us, throughput = 9.263353 ops/us
+        Run, throughput: 10.169271 ,ops/us
+        Load took 9987150 us, throughput = 10.012867 ops/us
+        Run, throughput: 14.474300 ,ops/us
+        Load took 9561755 us, throughput = 10.458331 ops/us
+        Run, throughput: 14.409963 ,ops/us
+        Load took 9720558 us, throughput = 10.287475 ops/us
+        Run, throughput: 14.423566 ,ops/us
+        Load took 9440514 us, throughput = 10.592644 ops/us
+        Run, throughput: 14.930835 ,ops/us
+        Load took 9880946 us, throughput = 10.120488 ops/us
+        Run, throughput: 14.507322 ,ops/us
+        Median Load throughput: 10.287475 ,ops/us
+        Median Run throughput: 14.474300 ,ops/us
+
+
+
+ Performance counter stats for './ycsb ../../eddy/datasets/uniform/ b 64 outb.txt':
+
+      6,559,804.07 msec task-clock                #   30.817 CPUs utilized          
+             5,632      context-switches          #    0.001 K/sec                  
+                95      cpu-migrations            #    0.000 K/sec                  
+         1,788,747      page-faults               #    0.273 K/sec                  
+16,684,707,635,818      cycles                    #    2.543 GHz                      (41.64%)
+ 7,895,805,589,950      instructions              #    0.47  insn per cycle           (49.99%)
+ 1,315,831,679,565      branches                  #  200.590 M/sec                    (58.33%)
+    21,059,613,034      branch-misses             #    1.60% of all branches          (66.67%)
+ 2,412,739,153,921      L1-dcache-loads           #  367.807 M/sec                    (66.68%)
+   290,837,014,148      L1-dcache-load-misses     #   12.05% of all L1-dcache hits    (66.69%)
+    93,550,899,605      LLC-loads                 #   14.261 M/sec                    (66.69%)
+    29,501,878,016      LLC-load-misses           #   31.54% of all LL-cache hits     (66.69%)
+   <not supported>      L1-icache-loads                                             
+       428,091,072      L1-icache-load-misses                                         (33.32%)
+ 2,416,054,705,928      dTLB-loads                #  368.312 M/sec                    (33.31%)
+    64,248,606,935      dTLB-load-misses          #    2.66% of all dTLB cache hits   (33.31%)
+   <not supported>      iTLB-loads                                                  
+         5,392,895      iTLB-load-misses                                              (33.31%)
+   <not supported>      L1-dcache-prefetches                                        
+   <not supported>      L1-dcache-prefetch-misses                                   
+
+     212.865759979 seconds time elapsed
+
+    6553.139499000 seconds user
+       6.763462000 seconds sys
+
+
+brian@sn4622111117:~/folly_bench$ LD_LIBRARY_PATH=/home/brian/glog/build/:$LD_LIBRARY_PATH numactl -N 1 -m 1 perf stat -d -d -d ./ycsb ../../eddy/datasets/uniform/ c 64 outc.txt 
+loading with file: ../../eddy/datasets/uniform/loadc_unif_int.dat
+running with file: ../../eddy/datasets/uniform/txnsc_unif_int.dat
+Loaded 100000000 keys
+Loaded 100000000 more keys
+Slept
+bskiplist
+        Load took 10445221 us, throughput = 9.573756 ops/us
+        Run, throughput: 10.346210 ,ops/us
+        Load took 9375964 us, throughput = 10.665570 ops/us
+        Run, throughput: 14.207623 ,ops/us
+        Load took 9574265 us, throughput = 10.444666 ops/us
+        Run, throughput: 14.012471 ,ops/us
+        Load took 9590378 us, throughput = 10.427118 ops/us
+        Run, throughput: 14.256253 ,ops/us
+        Load took 9623554 us, throughput = 10.391171 ops/us
+        Run, throughput: 13.918597 ,ops/us
+        Load took 9427476 us, throughput = 10.607293 ops/us
+        Run, throughput: 14.020449 ,ops/us
+        Median Load throughput: 10.444666 ,ops/us
+        Median Run throughput: 14.020449 ,ops/us
+
+
+
+ Performance counter stats for './ycsb ../../eddy/datasets/uniform/ c 64 outc.txt':
+
+      6,552,850.89 msec task-clock                #   31.455 CPUs utilized          
+             4,879      context-switches          #    0.001 K/sec                  
+               101      cpu-migrations            #    0.000 K/sec                  
+         1,737,799      page-faults               #    0.265 K/sec                  
+16,668,890,163,314      cycles                    #    2.544 GHz                      (41.65%)
+ 7,708,179,546,200      instructions              #    0.46  insn per cycle           (49.99%)
+ 1,286,192,256,291      branches                  #  196.280 M/sec                    (58.33%)
+    20,906,651,648      branch-misses             #    1.63% of all branches          (66.67%)
+ 2,355,270,614,286      L1-dcache-loads           #  359.427 M/sec                    (66.68%)
+   304,729,503,123      L1-dcache-load-misses     #   12.94% of all L1-dcache hits    (66.68%)
+    92,726,641,064      LLC-loads                 #   14.151 M/sec                    (66.68%)
+    29,264,712,694      LLC-load-misses           #   31.56% of all LL-cache hits     (66.68%)
+   <not supported>      L1-icache-loads                                             
+       371,824,327      L1-icache-load-misses                                         (33.32%)
+ 2,357,782,785,107      dTLB-loads                #  359.810 M/sec                    (33.32%)
+    72,473,138,201      dTLB-load-misses          #    3.07% of all dTLB cache hits   (33.32%)
+   <not supported>      iTLB-loads                                                  
+         5,025,294      iTLB-load-misses                                              (33.32%)
+   <not supported>      L1-dcache-prefetches                                        
+   <not supported>      L1-dcache-prefetch-misses                                   
+
+     208.326951330 seconds time elapsed
+
+    6546.153104000 seconds user
+       6.791544000 seconds sys
+
+brian@sn4622111117:~/folly_bench$ LD_LIBRARY_PATH=/home/brian/glog/build/:$LD_LIBRARY_PATH numactl -N 1 -m 1 perf stat -d -d -d ./ycsb ../../eddy/datasets/uniform/ e 64 oute.txt 
+loading with file: ../../eddy/datasets/uniform/loade_unif_int.dat
+running with file: ../../eddy/datasets/uniform/txnse_unif_int.dat
+Loaded 100000000 keys
+Loaded 100000000 more keys
+Slept
+bskiplist
+        Load took 10556269 us, throughput = 9.473044 ops/us
+        Run, throughput: 4.428598 ,ops/us
+        Load took 9590370 us, throughput = 10.427126 ops/us
+        Run, throughput: 5.066091 ,ops/us
+        Load took 9555174 us, throughput = 10.465534 ops/us
+        Run, throughput: 4.954598 ,ops/us
+        Load took 9810448 us, throughput = 10.193214 ops/us
+        Run, throughput: 5.156748 ,ops/us
+        Load took 9461978 us, throughput = 10.568615 ops/us
+        Run, throughput: 4.998799 ,ops/us
+        Load took 9514288 us, throughput = 10.510508 ops/us
+        Run, throughput: 4.952238 ,ops/us
+        Median Load throughput: 10.465534 ,ops/us
+        Median Run throughput: 4.998799 ,ops/us
+
+
+
+ Performance counter stats for './ycsb ../../eddy/datasets/uniform/ e 64 oute.txt':
+
+     11,429,796.47 msec task-clock                #   39.064 CPUs utilized          
+             8,019      context-switches          #    0.001 K/sec                  
+               142      cpu-migrations            #    0.000 K/sec                  
+         1,788,145      page-faults               #    0.156 K/sec                  
+29,276,321,378,119      cycles                    #    2.561 GHz                      (41.67%)
+ 9,997,562,365,121      instructions              #    0.34  insn per cycle           (50.00%)
+ 1,653,539,452,325      branches                  #  144.669 M/sec                    (58.33%)
+    35,772,664,224      branch-misses             #    2.16% of all branches          (66.66%)
+ 3,235,716,421,944      L1-dcache-loads           #  283.095 M/sec                    (66.66%)
+   446,657,342,362      L1-dcache-load-misses     #   13.80% of all L1-dcache hits    (66.66%)
+   160,232,937,314      LLC-loads                 #   14.019 M/sec                    (66.67%)
+    65,856,426,182      LLC-load-misses           #   41.10% of all LL-cache hits     (66.67%)
+   <not supported>      L1-icache-loads                                             
+       626,051,593      L1-icache-load-misses                                         (33.34%)
+ 3,235,488,531,956      dTLB-loads                #  283.075 M/sec                    (33.34%)
+    96,342,491,250      dTLB-load-misses          #    2.98% of all dTLB cache hits   (33.33%)
+   <not supported>      iTLB-loads                                                  
+         8,420,749      iTLB-load-misses                                              (33.33%)
+   <not supported>      L1-dcache-prefetches                                        
+   <not supported>      L1-dcache-prefetch-misses                                   
+
+     292.593100314 seconds time elapsed
+
+   11422.916290000 seconds user
+       6.987344000 seconds sys
+
+
+
+12 iters
+
+brian@sn4622111117:~/folly_bench$ LD_LIBRARY_PATH=/home/brian/glog/build/:$LD_LIBRARY_PATH numactl -N 1 -m 1 perf stat -d -d -d ./ycsb ../../eddy/datasets/uniform/ c 64 outc.tx
+t 
+loading with file: ../../eddy/datasets/uniform/loadc_unif_int.dat
+running with file: ../../eddy/datasets/uniform/txnsc_unif_int.dat
+Loaded 100000000 keys
+Loaded 100000000 more keys
+Slept
+bskiplist
+        Load took 10898572 us, throughput = 9.175514 ops/us
+        Run, throughput: 10.317872 ,ops/us
+        Load took 9805725 us, throughput = 10.198124 ops/us
+        Run, throughput: 13.603945 ,ops/us
+        Load took 9585593 us, throughput = 10.432323 ops/us
+        Run, throughput: 13.730468 ,ops/us
+        Load took 9800917 us, throughput = 10.203127 ops/us
+        Run, throughput: 13.908811 ,ops/us
+        Load took 9814497 us, throughput = 10.189009 ops/us
+        Run, throughput: 13.497164 ,ops/us
+        Load took 9642679 us, throughput = 10.370562 ops/us
+        Run, throughput: 13.795318 ,ops/us
+        Load took 9522642 us, throughput = 10.501287 ops/us
+        Run, throughput: 13.887504 ,ops/us
+        Load took 9818478 us, throughput = 10.184878 ops/us
+        Run, throughput: 13.423071 ,ops/us
+        Load took 9409176 us, throughput = 10.627923 ops/us
+        Run, throughput: 13.693117 ,ops/us
+        Load took 9766806 us, throughput = 10.238762 ops/us
+        Run, throughput: 13.890280 ,ops/us
+        Load took 9565530 us, throughput = 10.454204 ops/us
+        Run, throughput: 13.888524 ,ops/us
+        Load took 9460001 us, throughput = 10.570823 ops/us
+        Run, throughput: 14.021102 ,ops/us
+        Median Load throughput: 10.370562 ,ops/us
+        Median Run throughput: 13.795318 ,ops/us
+
+
+
+ Performance counter stats for './ycsb ../../eddy/datasets/uniform/ c 64 outc.txt':
+
+     13,058,816.22 msec task-clock                #   33.812 CPUs utilized          
+             9,993      context-switches          #    0.001 K/sec                  
+               250      cpu-migrations            #    0.000 K/sec                  
+         1,746,200      page-faults               #    0.134 K/sec                  
+33,193,510,869,077      cycles                    #    2.542 GHz                      (41.64%)
+15,351,345,980,245      instructions              #    0.46  insn per cycle           (49.98%)
+ 2,532,989,687,551      branches                  #  193.968 M/sec                    (58.32%)
+    41,879,692,219      branch-misses             #    1.65% of all branches          (66.66%)
+ 4,689,818,277,312      L1-dcache-loads           #  359.130 M/sec                    (66.67%)
+   587,854,179,158      L1-dcache-load-misses     #   12.53% of all L1-dcache hits    (66.67%)
+   185,777,661,673      LLC-loads                 #   14.226 M/sec                    (66.68%)
+    58,836,148,048      LLC-load-misses           #   31.67% of all LL-cache hits     (66.69%)
+   <not supported>      L1-icache-loads                                             
+       588,114,258      L1-icache-load-misses                                         (33.33%)
+ 4,692,331,039,269      dTLB-loads                #  359.323 M/sec                    (33.33%)
+   132,765,294,179      dTLB-load-misses          #    2.83% of all dTLB cache hits   (33.32%)
+   <not supported>      iTLB-loads                                                  
+         7,517,650      iTLB-load-misses                                              (33.31%)
+   <not supported>      L1-dcache-prefetches                                        
+   <not supported>      L1-dcache-prefetch-misses                                   
+
+     386.215222237 seconds time elapsed
+
+   13052.623584000 seconds user
+       6.379503000 seconds sys
+
+
+brian@sn4622111117:~/folly_bench$ LD_LIBRARY_PATH=/home/brian/glog/build/:$LD_LIBRARY_PATH numactl -N 1 -m 1 perf stat -d -d -d ./ycsb ../../eddy/datasets/uniform/ e 64 oute.txt 
+loading with file: ../../eddy/datasets/uniform/loade_unif_int.dat
+running with file: ../../eddy/datasets/uniform/txnse_unif_int.dat
+Loaded 100000000 keys
+Loaded 100000000 more keys
+Slept
+bskiplist
+        Load took 10048211 us, throughput = 9.952020 ops/us
+        Run, throughput: 4.512360 ,ops/us
+        Load took 9755194 us, throughput = 10.250949 ops/us
+        Run, throughput: 5.155008 ,ops/us
+        Load took 9780915 us, throughput = 10.223992 ops/us
+        Run, throughput: 5.115570 ,ops/us
+        Load took 9425886 us, throughput = 10.609082 ops/us
+        Run, throughput: 5.134533 ,ops/us
+        Load took 9581299 us, throughput = 10.436998 ops/us
+        Run, throughput: 4.960891 ,ops/us
+        Load took 9804054 us, throughput = 10.199862 ops/us
+        Run, throughput: 5.135456 ,ops/us
+        Load took 9835929 us, throughput = 10.166808 ops/us
+        Run, throughput: 5.186527 ,ops/us
+        Load took 9803249 us, throughput = 10.200700 ops/us
+        Run, throughput: 4.919419 ,ops/us
+        Load took 9865916 us, throughput = 10.135906 ops/us
+        Run, throughput: 4.853849 ,ops/us
+        Load took 9535335 us, throughput = 10.487309 ops/us
+        Run, throughput: 4.975632 ,ops/us
+        Load took 9486990 us, throughput = 10.540751 ops/us
+        Run, throughput: 5.154714 ,ops/us
+        Load took 9401300 us, throughput = 10.636827 ops/us
+        Run, throughput: 5.196309 ,ops/us
+        Median Load throughput: 10.250949 ,ops/us
+        Median Run throughput: 5.134533 ,ops/us
+
+
+
+ Performance counter stats for './ycsb ../../eddy/datasets/uniform/ e 64 oute.txt':
+
+     22,461,784.14 msec task-clock                #   41.225 CPUs utilized          
+            17,243      context-switches          #    0.001 K/sec                  
+               330      cpu-migrations            #    0.000 K/sec                  
+         1,801,406      page-faults               #    0.080 K/sec                  
+57,525,039,526,787      cycles                    #    2.561 GHz                      (41.67%)
+19,536,969,040,317      instructions              #    0.34  insn per cycle           (50.00%)
+ 3,203,359,275,980      branches                  #  142.614 M/sec                    (58.33%)
+    71,554,019,435      branch-misses             #    2.23% of all branches          (66.66%)
+ 6,324,180,328,997      L1-dcache-loads           #  281.553 M/sec                    (66.66%)
+   848,856,265,405      L1-dcache-load-misses     #   13.42% of all L1-dcache hits    (66.66%)
+   320,890,985,755      LLC-loads                 #   14.286 M/sec                    (66.66%)
+   132,400,552,175      LLC-load-misses           #   41.26% of all LL-cache hits     (66.66%)
+   <not supported>      L1-icache-loads                                             
+     1,039,984,125      L1-icache-load-misses                                         (33.34%)
+ 6,324,733,290,090      dTLB-loads                #  281.578 M/sec                    (33.34%)
+   170,895,606,827      dTLB-load-misses          #    2.70% of all dTLB cache hits   (33.34%)
+   <not supported>      iTLB-loads                                                  
+        13,172,094      iTLB-load-misses                                              (33.34%)
+   <not supported>      L1-dcache-prefetches                                        
+   <not supported>      L1-dcache-prefetch-misses                                   
+
+     544.858682200 seconds time elapsed
+
+   22455.040345000 seconds user
+       6.967301000 seconds sys
+
+brian@sn4622111117:~/folly_bench$ LD_LIBRARY_PATH=/home/brian/glog/build/:$LD_LIBRARY_PATH numactl -N 1 -m 1 perf stat -d -d -d ./ycsb ../../eddy/datasets/uniform/ c 64 outc.txt 
+loading with file: ../../eddy/datasets/uniform/loadc_unif_int.dat
+running with file: ../../eddy/datasets/uniform/txnsc_unif_int.dat
+Loaded 100000000 keys
+Loaded 100000000 more keys
+Slept
+bskiplist
+        Load took 10229030 us, throughput = 9.776098 ops/us
+        Run, throughput: 10.235754 ,ops/us
+        Load took 9795461 us, throughput = 10.208810 ops/us
+        Run, throughput: 13.984015 ,ops/us
+        Load took 9838074 us, throughput = 10.164591 ops/us
+        Run, throughput: 13.818780 ,ops/us
+        Load took 9990349 us, throughput = 10.009660 ops/us
+        Run, throughput: 13.595664 ,ops/us
+        Load took 9858682 us, throughput = 10.143344 ops/us
+        Run, throughput: 13.705443 ,ops/us
+        Load took 9816357 us, throughput = 10.187079 ops/us
+        Run, throughput: 13.982281 ,ops/us
+        Load took 9443332 us, throughput = 10.589483 ops/us
+        Run, throughput: 13.684904 ,ops/us
+        Load took 9489548 us, throughput = 10.537910 ops/us
+        Run, throughput: 13.951025 ,ops/us
+        Load took 9811988 us, throughput = 10.191615 ops/us
+        Run, throughput: 13.703366 ,ops/us
+        Load took 9857714 us, throughput = 10.144340 ops/us
+        Run, throughput: 13.833673 ,ops/us
+        Load took 9797958 us, throughput = 10.206208 ops/us
+        Run, throughput: 13.471477 ,ops/us
+        Load took 9560388 us, throughput = 10.459827 ops/us
+        Run, throughput: 13.831588 ,ops/us
+        Load took 9587458 us, throughput = 10.430293 ops/us
+        Run, throughput: 13.718230 ,ops/us
+        Load took 9599851 us, throughput = 10.416828 ops/us
+        Run, throughput: 13.948439 ,ops/us
+        Load took 9745624 us, throughput = 10.261016 ops/us
+        Run, throughput: 13.926552 ,ops/us
+        Load took 9424895 us, throughput = 10.610198 ops/us
+        Run, throughput: 14.296214 ,ops/us
+        Load took 9586809 us, throughput = 10.431000 ops/us
+        Run, throughput: 13.977039 ,ops/us
+        Load took 9746027 us, throughput = 10.260591 ops/us
+        Run, throughput: 13.883993 ,ops/us
+        Median Load throughput: 10.260591 ,ops/us
+        Median Run throughput: 13.833673 ,ops/us
+
+
+
+ Performance counter stats for './ycsb ../../eddy/datasets/uniform/ c 64 outc.txt':
+
+     19,438,428.61 msec task-clock                #   34.789 CPUs utilized          
+            18,492      context-switches          #    0.001 K/sec                  
+               282      cpu-migrations            #    0.000 K/sec                  
+         1,754,596      page-faults               #    0.090 K/sec                  
+49,382,480,222,181      cycles                    #    2.540 GHz                      (41.66%)
+22,838,783,949,535      instructions              #    0.46  insn per cycle           (49.99%)
+ 3,755,408,469,752      branches                  #  193.195 M/sec                    (58.33%)
+    62,857,881,315      branch-misses             #    1.67% of all branches          (66.66%)
+ 6,975,611,623,926      L1-dcache-loads           #  358.857 M/sec                    (66.66%)
+   862,593,880,485      L1-dcache-load-misses     #   12.37% of all L1-dcache hits    (66.67%)
+   278,535,077,927      LLC-loads                 #   14.329 M/sec                    (66.67%)
+    88,448,112,813      LLC-load-misses           #   31.75% of all LL-cache hits     (66.67%)
+   <not supported>      L1-icache-loads                                             
+       797,178,752      L1-icache-load-misses                                         (33.34%)
+ 6,979,017,666,953      dTLB-loads                #  359.032 M/sec                    (33.33%)
+   188,757,674,762      dTLB-load-misses          #    2.70% of all dTLB cache hits   (33.33%)
+   <not supported>      iTLB-loads                                                  
+         9,549,827      iTLB-load-misses                                              (33.33%)
+   <not supported>      L1-dcache-prefetches                                        
+   <not supported>      L1-dcache-prefetch-misses                                   
+
+     558.753066484 seconds time elapsed
+
+   19432.105986000 seconds user
+       6.607506000 seconds sys
+
+
+brian@sn4622111117:~/folly_bench$ LD_LIBRARY_PATH=/home/brian/glog/build/:$LD_LIBRARY_PATH numactl -N 1 -m 1 perf stat -d -d -d ./ycsb ../../eddy/datasets/uniform/ e 64 oute.txt 
+loading with file: ../../eddy/datasets/uniform/loade_unif_int.dat
+running with file: ../../eddy/datasets/uniform/txnse_unif_int.dat
+Loaded 100000000 keys
+Loaded 100000000 more keys
+Slept
+bskiplist
+        Load took 10509056 us, throughput = 9.515603 ops/us
+        Run, throughput: 4.467664 ,ops/us
+        Load took 9527022 us, throughput = 10.496459 ops/us
+        Run, throughput: 5.153748 ,ops/us
+        Load took 9809120 us, throughput = 10.194594 ops/us
+        Run, throughput: 4.919885 ,ops/us
+        Load took 9773733 us, throughput = 10.231505 ops/us
+        Run, throughput: 5.118469 ,ops/us
+        Load took 9559539 us, throughput = 10.460755 ops/us
+        Run, throughput: 4.945649 ,ops/us
+        Load took 9567259 us, throughput = 10.452315 ops/us
+        Run, throughput: 5.168006 ,ops/us
+        Load took 9525552 us, throughput = 10.498079 ops/us
+        Run, throughput: 5.084548 ,ops/us
+        Load took 9543829 us, throughput = 10.477975 ops/us
+        Run, throughput: 5.178923 ,ops/us
+        Load took 9943905 us, throughput = 10.056411 ops/us
+        Run, throughput: 5.115754 ,ops/us
+        Load took 9575284 us, throughput = 10.443554 ops/us
+        Run, throughput: 4.952647 ,ops/us
+        Load took 10102082 us, throughput = 9.898950 ops/us
+        Run, throughput: 4.774543 ,ops/us
+        Load took 9879325 us, throughput = 10.122149 ops/us
+        Run, throughput: 5.107647 ,ops/us
+        Load took 9987390 us, throughput = 10.012626 ops/us
+        Run, throughput: 5.127996 ,ops/us
+        Load took 9537705 us, throughput = 10.484703 ops/us
+        Run, throughput: 4.981062 ,ops/us
+        Load took 9540588 us, throughput = 10.481534 ops/us
+        Run, throughput: 4.956704 ,ops/us
+        Load took 9423498 us, throughput = 10.611771 ops/us
+        Run, throughput: 4.975845 ,ops/us
+        Load took 9627173 us, throughput = 10.387265 ops/us
+        Run, throughput: 5.057343 ,ops/us
+        Load took 9803718 us, throughput = 10.200212 ops/us
+        Run, throughput: 5.118375 ,ops/us
+        Median Load throughput: 10.443554 ,ops/us
+        Median Run throughput: 5.084548 ,ops/us
+
+
+
+ Performance counter stats for './ycsb ../../eddy/datasets/uniform/ e 64 oute.txt':
+
+     33,693,214.65 msec task-clock                #   41.846 CPUs utilized          
+            33,356      context-switches          #    0.001 K/sec                  
+               595      cpu-migrations            #    0.000 K/sec                  
+         1,814,734      page-faults               #    0.054 K/sec                  
+86,294,098,309,890      cycles                    #    2.561 GHz                      (41.66%)
+29,162,776,198,042      instructions              #    0.34  insn per cycle           (49.99%)
+ 4,765,964,531,066      branches                  #  141.452 M/sec                    (58.33%)
+   107,316,838,140      branch-misses             #    2.25% of all branches          (66.66%)
+ 9,442,003,118,299      L1-dcache-loads           #  280.235 M/sec                    (66.66%)
+ 1,266,937,883,558      L1-dcache-load-misses     #   13.42% of all L1-dcache hits    (66.67%)
+   481,496,890,354      LLC-loads                 #   14.291 M/sec                    (66.67%)
+   198,277,216,235      LLC-load-misses           #   41.18% of all LL-cache hits     (66.67%)
+   <not supported>      L1-icache-loads                                             
+     1,467,014,322      L1-icache-load-misses                                         (33.34%)
+ 9,444,174,593,878      dTLB-loads                #  280.299 M/sec                    (33.33%)
+   250,056,082,410      dTLB-load-misses          #    2.65% of all dTLB cache hits   (33.33%)
+   <not supported>      iTLB-loads                                                  
+        19,667,964      iTLB-load-misses                                              (33.33%)
+   <not supported>      L1-dcache-prefetches                                        
+   <not supported>      L1-dcache-prefetch-misses                                   
+
+     805.177112673 seconds time elapsed
+
+   33686.354448000 seconds user
+       7.223352000 seconds sys
