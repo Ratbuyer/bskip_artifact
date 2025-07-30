@@ -10,7 +10,7 @@ CC=g++
 
 all:	ycsb
 
-ptst.o: ptst.h 
+ptst.o: ptst.h
 	$(CC) $(CFLAGS) -c -o $(BUILDIR)/ptst.o ptst.cpp -I$(INCLUDE_DIR)
 
 garbagecoll.o: garbagecoll.h ptst.h
@@ -30,10 +30,10 @@ intset.o: intset.h nohotspot_ops.h skiplist.h
 
 test.o: intset.h
 	$(CC) $(CFLAGS) -c -o $(BUILDIR)/test.o test.c -I$(INCLUDE_DIR)
-	
+
 ycsb.o: intset.h ycsb.cpp
 	g++ $(CFLAGS) -std=c++20 -c -IParallelTools/ -o $(BUILDIR)/ycsb.o ycsb.cpp -I$(INCLUDE_DIR)
-	
+
 ycsb: intset.o background.o skiplist.o nohotspot_ops.o ycsb.o ptst.o garbagecoll.o
 	g++ $(CFLAGS) $(BUILDIR)/garbagecoll.o $(BUILDIR)/ptst.o $(BUILDIR)/skiplist.o $(BUILDIR)/nohotspot_ops.o $(BUILDIR)/intset.o $(BUILDIR)/background.o $(BUILDIR)/ycsb.o \
 	-o $(BINS)/ycsb $(LDFLAGS) \
@@ -45,4 +45,4 @@ main: intset.o background.o skiplist.o nohotspot_ops.o test.o ptst.o garbagecoll
 clean:
 	rm -f ./test
 	rm -f ./ycsb
-	rm -f ./ycsb.o
+	rm -f ./*.o

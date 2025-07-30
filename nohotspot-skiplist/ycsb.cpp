@@ -324,7 +324,7 @@ void ycsb_load_run_randint(std::string init_file, std::string txn_file,
 	ThreadSafeVector<uint64_t> load_latencies;
 	ThreadSafeVector<uint64_t> latencies;
 #endif
-	
+
 	constexpr int sleep_time_us = 100000;
 
 	for (int k = 0; k < 6; k++) {
@@ -333,9 +333,9 @@ void ycsb_load_run_randint(std::string init_file, std::string txn_file,
 		gc_subsystem_init();
 		set_subsystem_init();
 		set = set_new(0);
-		
+
 		bg_start(100);
-		
+
 		std::atomic<int> counter = 0;
 
 		{
@@ -375,8 +375,8 @@ void ycsb_load_run_randint(std::string init_file, std::string txn_file,
 
 			bg_stop();
 			// printf("Set size     : %d\n", set_size(set, 0));
-			// 
-			
+			//
+
 			printf("levels before rebalance: %d\n", set->head->level);
 			printf("larget level: %d\n", floor_log_2(LOAD_SIZE));
 

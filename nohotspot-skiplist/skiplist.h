@@ -9,7 +9,6 @@
 
 #include "./atomic_ops/atomic_ops.h"
 #include <cstdint>
-#include "../indexkey.h"
 
 #include "common.h"
 #include "ptst.h"
@@ -23,7 +22,7 @@
 
 #ifndef USE_GENERIC_KEY
 using sl_key_t = uint64_t;
-#else 
+#else
 using sl_key_t = GenericKey<31>;
 #endif
 using val_t = void *;
