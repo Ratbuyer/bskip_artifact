@@ -1,28 +1,13 @@
-# bskiplist
+# B-skiplist
 
-getting the code: clone it and get submodules
+## Compilation:
 
-git clone git@github.com:itshelenxu/bskiplist.git
-cd bskiplist
-git submodule init
-git submodule update
+To compile the code for throughput, run `make`. To compile the code for both throughput and latency, run `make LATENCY=1`
 
----
-building the code: using g++-11
-export CXX=g++-11
+## Execution
 
-to build in parallel
-make basic
+After compiling, run `./ycsb <path to ycsb files> <workload> <thread number> <output file>`
 
-to run with lock timing
-make ENABLE_TRACE_TIMER=1 CYCLE_ITMER=1 basic
+Example command: `./ycsb /home/eddy/repo/ycsb/ a 16 out.txt`
 
-to build with debug
-make DEBUG=1 basic
-
----
-to run microbenchmarks
-
-./basic --microbenchmark_baseline --write_csv
-
-see also run_tests.py
+The througput or/and latency will be printed in the terminal
