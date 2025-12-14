@@ -1,28 +1,9 @@
 # bskiplist
-
-getting the code: clone it and get submodules
-
-git clone git@github.com:itshelenxu/bskiplist.git
-cd bskiplist
-git submodule init
-git submodule update
-
 ---
-building the code: using g++-11
-export CXX=g++-11
+to compile test binary:
 
-to build in parallel
-make basic
+`make test DEBUG=1` and run `./test`
 
-to run with lock timing
-make ENABLE_TRACE_TIMER=1 CYCLE_ITMER=1 basic
+to compile ycsb driver:
 
-to build with debug
-make DEBUG=1 basic
-
----
-to run microbenchmarks
-
-./basic --microbenchmark_baseline --write_csv
-
-see also run_tests.py
+`make ycsb` and run `/ycsb <path to ycsb files> <ycsb workload (a, b, c, e)> <# of threads>`
