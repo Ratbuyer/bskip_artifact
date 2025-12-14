@@ -3,14 +3,22 @@ VALGRIND?=0
 INFO?=0
 ENABLE_TRACE_TIMER?=0
 CYCLE_TIMER?=0
-DEBUG?=0
+DEBUG?=1
 CILK?=0
 SANITIZE?=0
 CORRECTNESS?=0
+LATENCY?=0
+STATS?=0
 
-# CXX=clang++
-# CFLAGS := -Wall -Wextra -O$(OPT) -g  -std=c++20 -IParallelTools/ -I../ -gdwarf-4
-CFLAGS := -pthread -Wall -Wextra -std=c++20 -IParallelTools/ -Wno-deprecated-declarations -Iparlaylib/include/ -Wshadow -fmax-errors=1
+CFLAGS := -pthread \
+		-Wall -Wextra \
+		-std=c++20 \
+		-Wno-deprecated-declarations \
+		-Wshadow \
+		-fmax-errors=1 \
+		-isystem external/ParallelTools -isystem external/ \
+		-MMD -MP \
+# 		-fsanitize=address,undefined -fPIE -g
 
 ifeq ($(DEBUG),1)
 CFLAGS += -g -gdwarf-4 -O0
@@ -44,16 +52,45 @@ CFLAGS += -DNDEBUG
 endif
 
 
-ifeq ($(INFO), 1) 
-# CFLAGS +=  -Rpass-missed="(inline|loop*)" 
-#CFLAGS += -Rpass="(inline|loop*)" -Rpass-missed="(inline|loop*)" -Rpass-analysis="(inline|loop*)" 
-CFLAGS += -Rpass=.* -Rpass-missed=.* -Rpass-analysis=.* 
+ifeq ($(INFO), 1)
+# CFLAGS +=  -Rpass-missed="(inline|loop*)"
+#CFLAGS += -Rpass="(inline|loop*)" -Rpass-missed="(inline|loop*)" -Rpass-analysis="(inline|loop*)"
+CFLAGS += -Rpass=.* -Rpass-missed=.* -Rpass-analysis=.*
 endif
 
+ifeq ($(LATENCY), 1)
+CFLAGS += -DLATENCY=1
+endif
 
-all: basic
- 
-basic: correctness_range.cpp
-	$(CXX) $(CFLAGS) $(DEFINES) -o $@ test_bskip.cpp $(LDFLAGS) 
+ifeq ($(STATS), 1)
+DEFINES += -DSTATS=1
+endif
+
+VPATH = src
+
+SRCS := stats.cpp \
+        delete.cpp \
+		prints.cpp \
+		constructor.cpp \
+		destructor.cpp \
+		insert.cpp \
+		exists.cpp \
+		value.cpp
+
+OBJS := $(SRCS:.cpp=.o)
+
+all: test ycsb
+
+test: $(OBJS) test.o
+	$(CXX) $(CFLAGS) $(DEFINES) $(LDFLAGS) -o $@ $^
+
+ycsb: $(OBJS) ycsb.o
+	$(CXX) $(CFLAGS) $(DEFINES) $(LDFLAGS) -o $@ $^
+
+%.o: %.cpp
+	$(CXX) $(CFLAGS) $(DEFINES) $(LDFLAGS) -c $< -o $@
+
 clean:
-	rm basic
+	rm -rf test ycsb *.o *.d
+
+-include $(OBJS:.o=.d test.o=test.d ycsb.o=ycsb.d)
