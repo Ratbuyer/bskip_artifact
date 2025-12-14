@@ -9,30 +9,17 @@
 #include <thread>
 #include <vector>
 
-#include "bskip.h"
-#include "cxxopts.hpp"
-#include "timers.hpp"
+#include <sys/time.h>
+
+#include "include/BSkipList.hpp"
+#include "helpers.h"
+#include "include/tools.h"
 #include <ParallelTools/parallel.h>
 
 using namespace std;
 
 using Key = uint64_t;
-
 using TID = uint64_t;
-
-// index types
-enum {
-	TYPE_BTREE,
-	TYPE_ART,
-	TYPE_HOT,
-	TYPE_BWTREE,
-	TYPE_MASSTREE,
-	TYPE_CLHT,
-	TYPE_FASTFAIR,
-	TYPE_LEVELHASH,
-	TYPE_CCEH,
-	TYPE_WOART,
-};
 
 enum {
 	OP_INSERT,
@@ -43,50 +30,8 @@ enum {
 	OP_DELETE,
 };
 
-enum {
-	WORKLOAD_A,
-	WORKLOAD_B,
-	WORKLOAD_C,
-	WORKLOAD_D,
-	WORKLOAD_E,
-	WORKLOAD_X,
-	WORKLOAD_Y,
-};
-
-enum {
-	RANDINT_KEY,
-	STRING_KEY,
-};
-
-enum {
-	UNIFORM,
-	ZIPFIAN,
-	SETA,
-};
-
-namespace Dummy {
-inline void mfence() { asm volatile("mfence" ::: "memory"); }
-
-inline void clflush(char *data, int len, bool front, bool back) {
-	if (front)
-		mfence();
-	volatile char *ptr = (char *)((unsigned long)data & ~(64 - 1));
-	for (; ptr < data + len; ptr += 64) {
-#ifdef CLFLUSH
-		asm volatile("clflush %0" : "+m"(*(volatile char *)ptr));
-#elif CLFLUSH_OPT
-		asm volatile(".byte 0x66; clflush %0" : "+m"(*(volatile char *)(ptr)));
-#elif CLWB
-		asm volatile(".byte 0x66; xsaveopt %0" : "+m"(*(volatile char *)(ptr)));
-#endif
-	}
-	if (back)
-		mfence();
-}
-} // namespace Dummy
-
-static uint64_t LOAD_SIZE = 100000000;
-static uint64_t RUN_SIZE = 100000000;
+static uint64_t LOAD_SIZE = 1000000;
+static uint64_t RUN_SIZE = 1000000;
 
 struct ThreadArgs {
 	std::function<void(int, int)> func;
@@ -135,19 +80,6 @@ inline void parallel_for(int numThreads, size_t start, size_t end, F f) {
 	}
 }
 
-template <class T>
-std::vector<T> create_random_data(size_t n, size_t max_val,
-								  std::seed_seq &seed) {
-
-	std::mt19937_64 eng(seed); // a source of random data
-
-	std::uniform_int_distribution<T> dist(0, max_val);
-	std::vector<T> v(n);
-
-	generate(begin(v), end(v), bind(dist, eng));
-	return v;
-}
-
 double findMedian(vector<double> &vec) {
 	size_t size = vec.size();
 	if (size == 0) {
@@ -166,7 +98,7 @@ void ycsb_load_run_randint(std::string init_file, std::string txn_file,
 						   int num_thread, std::vector<uint64_t> &init_keys,
 						   std::vector<uint64_t> &keys,
 						   std::vector<uint64_t> &range_end,
-						   std::vector<int> &ranges, std::vector<int> &ops, std::string output_file) {
+						   std::vector<int> &ranges, std::vector<int> &ops) {
 
 	printf("loading with file: %s\n", init_file.c_str());
 	printf("running with file: %s\n", txn_file.c_str());
@@ -323,8 +255,8 @@ void ycsb_load_run_randint(std::string init_file, std::string txn_file,
 							concurrent_map.map_range_length(
 								keys[index], ranges[index],
 								[&sum](auto key1, auto value) {
-									key1 += value;
-									sum += value;
+									key1 += std::get<0>(value);
+									sum += std::get<0>(value);
 								});
 						}
 
@@ -333,8 +265,8 @@ void ycsb_load_run_randint(std::string init_file, std::string txn_file,
 							concurrent_map.map_range(
 								keys[index], range_end[index],
 								[&sum](auto key1, auto value) {
-									key1 += value;
-									sum += value;
+									key1 += std::get<0>(value);
+									std::get<0>(value);
 								});
 						} else if (ops[index] == OP_UPDATE) {
 							std::cout << "NOT SUPPORTED CMD!\n";
@@ -355,21 +287,22 @@ void ycsb_load_run_randint(std::string init_file, std::string txn_file,
 			parallel_for(num_thread, 0, RUN_SIZE, [&](const uint64_t &i) {
 				if (ops[i] == OP_INSERT) {
 					concurrent_map.insert({keys[i], keys[i]});
+                    // concurrent_map.delete_key(keys[i]);
 				} else if (ops[i] == OP_READ) {
 					concurrent_map.value(keys[i]);
 				} else if (ops[i] == OP_SCAN) {
 					uint64_t sum = 0;
 					concurrent_map.map_range_length(
 						keys[i], ranges[i], [&sum](auto key1, auto value) {
-							key1 += value;
-							sum += value;
+							key1 += std::get<0>(value);
+							sum += std::get<0>(value);
 						});
 				} else if (ops[i] == OP_SCAN_END) {
 					uint64_t sum = 0;
 					concurrent_map.map_range(keys[i], range_end[i],
 											 [&sum](auto key1, auto value) {
-												 key1 += value;
-												 sum += value;
+												 key1 += std::get<0>(value);
+												 sum += std::get<0>(value);
 											 });
 
 				} else if (ops[i] == OP_UPDATE) {
@@ -410,24 +343,20 @@ void ycsb_load_run_randint(std::string init_file, std::string txn_file,
 }
 
 int main(int argc, char **argv) {
-	if (argc != 5) {
-		std::cout << "Usage: ./ycsb [index type] [ycsb workload type] [key "
-					 "distribution] [access pattern] [number of threads]\n";
-		std::cout << "1. index type: art hot bwtree masstree clht\n";
-		std::cout << "               fastfair levelhash cceh woart\n";
-		std::cout << "2. ycsb workload type: a, b, c, e\n";
-		std::cout << "3. key distribution: randint, string\n";
-		std::cout << "4. access pattern: uniform, zipfian\n";
-		std::cout << "5. number of threads (integer)\n";
+	if (argc != 4) {
+		std::cout << "Usage: ./ycsb <path to ycsb files> <ycsb workload> [key "
+					 "<# of threads>\n";
+        std::cout << "Example: ./ycsb ../ycsb_data/uniform/ a 24\n";
 		return 1;
 	}
+
+    std::cout << "Please make sure the partition counter in ParallelTools is equal to # of threads\n";
 
 	string file_dir = argv[1];
 
 	string load_file = file_dir;
 	string index_file = file_dir;
 
-	int workload;
 	if (strcmp(argv[2], "a") == 0) {
 		load_file += "loada_unif_int.dat";
 		index_file += "txnsa_unif_int.dat";
@@ -455,7 +384,6 @@ int main(int argc, char **argv) {
 	}
 
 	int num_thread = atoi(argv[3]);
-	string output = argv[4];
 
 	std::vector<uint64_t> init_keys;
 	std::vector<uint64_t> keys;
@@ -475,34 +403,7 @@ int main(int argc, char **argv) {
 	memset(&ranges[0], 0x00, RUN_SIZE * sizeof(int));
 	memset(&ops[0], 0x00, RUN_SIZE * sizeof(int));
 
-	float scales[] = {0.5f, 1.0f, 2.0f};
-	int node_sizes[] = {256, 512, 1024, 2048, 4096, 8192, 16384};
-
-	
-	
-	// ycsb_load_run_randint<512, 0.5f>(load_file, index_file, num_thread, init_keys, keys, ranges_end, ranges, ops, output);
-	// ycsb_load_run_randint<512, 1.0f>(load_file, index_file, num_thread, init_keys, keys, ranges_end, ranges, ops, output);
-	// ycsb_load_run_randint<512, 2.0f>(load_file, index_file, num_thread, init_keys, keys, ranges_end, ranges, ops, output);
-    
-	// ycsb_load_run_randint<1024, 0.5f>(load_file, index_file, num_thread, init_keys, keys, ranges_end, ranges, ops, output);
-	// ycsb_load_run_randint<1024, 1.0f>(load_file, index_file, num_thread, init_keys, keys, ranges_end, ranges, ops, output);
-	// ycsb_load_run_randint<1024, 2.0f>(load_file, index_file, num_thread, init_keys, keys, ranges_end, ranges, ops, output);
-	
-	ycsb_load_run_randint<2048, 0.5f>(load_file, index_file, num_thread, init_keys, keys, ranges_end, ranges, ops, output);
-	
-	return 0;
-	ycsb_load_run_randint<2048, 1.0f>(load_file, index_file, num_thread, init_keys, keys, ranges_end, ranges, ops, output);
-	ycsb_load_run_randint<2048, 2.0f>(load_file, index_file, num_thread, init_keys, keys, ranges_end, ranges, ops, output);
-	
-	ycsb_load_run_randint<4096, 0.5f>(load_file, index_file, num_thread, init_keys, keys, ranges_end, ranges, ops, output);
-	ycsb_load_run_randint<4096, 1.0f>(load_file, index_file, num_thread, init_keys, keys, ranges_end, ranges, ops, output);
-	ycsb_load_run_randint<4096, 2.0f>(load_file, index_file, num_thread, init_keys, keys, ranges_end, ranges, ops, output);
-	
-	return 0;
-	
-	ycsb_load_run_randint<8192, 0.5f>(load_file, index_file, num_thread, init_keys, keys, ranges_end, ranges, ops, output);
-	ycsb_load_run_randint<8192, 1.0f>(load_file, index_file, num_thread, init_keys, keys, ranges_end, ranges, ops, output);
-	ycsb_load_run_randint<8192, 2.0f>(load_file, index_file, num_thread, init_keys, keys, ranges_end, ranges, ops, output);
+	ycsb_load_run_randint<2048, 0.5f>(load_file, index_file, num_thread, init_keys, keys, ranges_end, ranges, ops);
 
 	return 0;
 }
