@@ -30,9 +30,6 @@ enum {
 	OP_DELETE,
 };
 
-static uint64_t LOAD_SIZE = 1000000;
-static uint64_t RUN_SIZE = 1000000;
-
 struct ThreadArgs {
 	std::function<void(int, int)> func;
 	int start;
@@ -95,7 +92,8 @@ double findMedian(vector<double> &vec) {
 
 template<int node_size = 1024, float p_scale = 0.5>
 void ycsb_load_run_randint(std::string init_file, std::string txn_file,
-						   int num_thread, std::vector<uint64_t> &init_keys,
+						   int num_thread, int iterations,
+                           std::vector<uint64_t> &init_keys,
 						   std::vector<uint64_t> &keys,
 						   std::vector<uint64_t> &range_end,
 						   std::vector<int> &ranges, std::vector<int> &ops) {
@@ -117,7 +115,7 @@ void ycsb_load_run_randint(std::string init_file, std::string txn_file,
 	std::string scanend("SCANEND");
 
 	uint64_t count = 0;
-	while ((count < LOAD_SIZE) && infile_load.good()) {
+	while ((count < (uint64_t) iterations) && infile_load.good()) {
 		infile_load >> op >> key;
 		if (op.compare(insert) != 0) {
 			std::cout << "READING LOAD FILE FAIL!\n";
@@ -132,7 +130,7 @@ void ycsb_load_run_randint(std::string init_file, std::string txn_file,
 	std::ifstream infile_txn(txn_file);
 
 	count = 0;
-	while ((count < RUN_SIZE) && infile_txn.good()) {
+	while ((count < (uint64_t) iterations) && infile_txn.good()) {
 		infile_txn >> op >> key;
 		if (op.compare(insert) == 0) {
 			ops.push_back(OP_INSERT);
@@ -200,7 +198,7 @@ void ycsb_load_run_randint(std::string init_file, std::string txn_file,
 			auto starttime = get_usecs();
 			
 			#if LATENCY
-			parallel_for(num_thread, 0, LOAD_SIZE / batch_size, [&](const uint64_t &i) {
+			parallel_for(num_thread, 0, iterations / batch_size, [&](const uint64_t &i) {
 				auto load_start = std::chrono::high_resolution_clock::now();
 				for (int j = 0; j < batch_size; j++) {
 					concurrent_map.insert({init_keys[i * 10 + j], init_keys[i * 10 + j]});
@@ -212,7 +210,7 @@ void ycsb_load_run_randint(std::string init_file, std::string txn_file,
 					batch_size);
 			});
 			#else
-			parallel_for(num_thread, 0, LOAD_SIZE, [&](const uint64_t &i) {
+			parallel_for(num_thread, 0, iterations, [&](const uint64_t &i) {
 				concurrent_map.insert({init_keys[i], init_keys[i]});
 			});
 			#endif
@@ -223,13 +221,13 @@ void ycsb_load_run_randint(std::string init_file, std::string txn_file,
 				starttime; // std::chrono::duration_cast<std::chrono::microseconds>(
 						   // std::chrono::system_clock::now() - starttime);
 			if (k != 0)
-				load_tpts.push_back(((double)LOAD_SIZE) / duration);
+				load_tpts.push_back(((double)iterations) / duration);
 
 			printf("\tLoad took %lu us, throughput = %f ops/us\n", duration,
-				   ((double)LOAD_SIZE) / duration);
+				   ((double)iterations) / duration);
 
 			// printf("Throughput: load, %f ,ops/us and time %ld in us\n",
-			// (LOAD_SIZE * 1.0) / duration.count(), duration.count());
+			// (iterations * 1.0) / duration.count(), duration.count());
 		}
 		{
 			// Run
@@ -238,7 +236,7 @@ void ycsb_load_run_randint(std::string init_file, std::string txn_file,
 
 #if LATENCY
 			parallel_for(
-				num_thread, 0, RUN_SIZE / batch_size, [&](const uint64_t &i) {
+				num_thread, 0, iterations / batch_size, [&](const uint64_t &i) {
 					// benchmark loops of 10
 					auto start = std::chrono::high_resolution_clock::now();
 
@@ -284,7 +282,7 @@ void ycsb_load_run_randint(std::string init_file, std::string txn_file,
 
 #else
 
-			parallel_for(num_thread, 0, RUN_SIZE, [&](const uint64_t &i) {
+			parallel_for(num_thread, 0, iterations, [&](const uint64_t &i) {
 				if (ops[i] == OP_INSERT) {
 					concurrent_map.insert({keys[i], keys[i]});
                     // concurrent_map.delete_key(keys[i]);
@@ -318,11 +316,11 @@ void ycsb_load_run_randint(std::string init_file, std::string txn_file,
 					std::chrono::system_clock::now() - starttime);
 
 			if (k != 0)
-				run_tpts.push_back((RUN_SIZE * 1.0) / duration.count());
+				run_tpts.push_back((iterations * 1.0) / duration.count());
 
 
 			printf("\tRun, throughput: %f ,ops/us\n",
-				   (RUN_SIZE * 1.0) / duration.count());
+				   (iterations * 1.0) / duration.count());
 			
 #if STATS
 			concurrent_map.get_size_stats();
@@ -343,47 +341,21 @@ void ycsb_load_run_randint(std::string init_file, std::string txn_file,
 }
 
 int main(int argc, char **argv) {
-	if (argc != 4) {
-		std::cout << "Usage: ./ycsb <path to ycsb files> <ycsb workload> [key "
-					 "<# of threads>\n";
-        std::cout << "Example: ./ycsb ../ycsb_data/uniform/ a 24\n";
+	if (argc != 5) {
+		std::cout << "Usage: ./ycsb <path to load file> <path to run file>"
+					 "<# of threads> <# of keys>\n";
+        std::cout << "./ycsb /home/loada_unif_int.dat /home/txnsa_unif_int.dat 64 100000000\n";
 		return 1;
 	}
 
     std::cout << "Please make sure the partition counter in ParallelTools is equal to # of threads\n";
 
-	string file_dir = argv[1];
-
-	string load_file = file_dir;
-	string index_file = file_dir;
-
-	if (strcmp(argv[2], "a") == 0) {
-		load_file += "loada_unif_int.dat";
-		index_file += "txnsa_unif_int.dat";
-	} else if (strcmp(argv[2], "b") == 0) {
-		load_file += "loadb_unif_int.dat";
-		index_file += "txnsb_unif_int.dat";
-	} else if (strcmp(argv[2], "c") == 0) {
-		load_file += "loadc_unif_int.dat";
-		index_file += "txnsc_unif_int.dat";
-	} else if (strcmp(argv[2], "d") == 0) {
-		load_file += "loadd_unif_int.dat";
-		index_file += "txnsd_unif_int.dat";
-	} else if (strcmp(argv[2], "e") == 0) {
-		load_file += "loade_unif_int.dat";
-		index_file += "txnse_unif_int.dat";
-	} else if (strcmp(argv[2], "x") == 0) {
-		load_file += "loadx_unif_int.dat";
-		index_file += "txnsx_unif_int.dat";
-	} else if (strcmp(argv[2], "y") == 0) {
-		load_file += "loady_unif_int.dat";
-		index_file += "txnsy_unif_int.dat";
-	} else {
-		fprintf(stderr, "Unknown workload: %s\n", argv[2]);
-		exit(1);
-	}
+	string load_file = argv[1];
+	string index_file = argv[2];
 
 	int num_thread = atoi(argv[3]);
+
+    int iterations = atoi(argv[4]);
 
 	std::vector<uint64_t> init_keys;
 	std::vector<uint64_t> keys;
@@ -391,19 +363,19 @@ int main(int argc, char **argv) {
 	std::vector<int> ranges;
 	std::vector<int> ops;
 
-	init_keys.reserve(LOAD_SIZE);
-	keys.reserve(RUN_SIZE);
-	ranges_end.reserve(RUN_SIZE);
-	ranges.reserve(RUN_SIZE);
-	ops.reserve(RUN_SIZE);
+	init_keys.reserve(iterations);
+	keys.reserve(iterations);
+	ranges_end.reserve(iterations);
+	ranges.reserve(iterations);
+	ops.reserve(iterations);
 
-	memset(&init_keys[0], 0x00, LOAD_SIZE * sizeof(uint64_t));
-	memset(&keys[0], 0x00, RUN_SIZE * sizeof(uint64_t));
-	memset(&ranges_end[0], 0x00, RUN_SIZE * sizeof(uint64_t));
-	memset(&ranges[0], 0x00, RUN_SIZE * sizeof(int));
-	memset(&ops[0], 0x00, RUN_SIZE * sizeof(int));
+	memset(&init_keys[0], 0x00, iterations * sizeof(uint64_t));
+	memset(&keys[0], 0x00, iterations * sizeof(uint64_t));
+	memset(&ranges_end[0], 0x00, iterations * sizeof(uint64_t));
+	memset(&ranges[0], 0x00, iterations * sizeof(int));
+	memset(&ops[0], 0x00, iterations * sizeof(int));
 
-	ycsb_load_run_randint<2048, 0.5f>(load_file, index_file, num_thread, init_keys, keys, ranges_end, ranges, ops);
+	ycsb_load_run_randint<2048, 0.5f>(load_file, index_file, num_thread, iterations, init_keys, keys, ranges_end, ranges, ops);
 
 	return 0;
 }
