@@ -1,3 +1,17 @@
+// Copyright 2025 Yicong Luo and contributors
+
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+
+//     http://www.apache.org/licenses/LICENSE-2.0
+
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 #include <chrono>
 #include <cstdint>
 #include <cstring>
@@ -196,7 +210,7 @@ void ycsb_load_run_randint(std::string init_file, std::string txn_file,
 		BSkip<parallel_traits> concurrent_map;
 		{
 			auto starttime = get_usecs();
-			
+
 			#if LATENCY
 			parallel_for(num_thread, 0, iterations / batch_size, [&](const uint64_t &i) {
 				auto load_start = std::chrono::high_resolution_clock::now();
@@ -214,7 +228,7 @@ void ycsb_load_run_randint(std::string init_file, std::string txn_file,
 				concurrent_map.insert({init_keys[i], init_keys[i]});
 			});
 			#endif
-			
+
 			auto end = get_usecs();
 			auto duration =
 				end -
@@ -321,7 +335,7 @@ void ycsb_load_run_randint(std::string init_file, std::string txn_file,
 
 			printf("\tRun, throughput: %f ,ops/us\n",
 				   (iterations * 1.0) / duration.count());
-			
+
 #if STATS
 			concurrent_map.get_size_stats();
 #endif
